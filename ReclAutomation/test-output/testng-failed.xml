@@ -3,15 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tests.transaction.CreateNewPOCompanyTest">
+      <class name="com.tests.AddCompanyTest">
         <methods>
           <include name="tearDown"/>
+          <include name="addCompanyTest"/>
           <include name="setUp"/>
+          <include name="afterMethod"/>
           <include name="getResult"/>
           <include name="openBrowser"/>
-          <include name="createNewPO"/>
         </methods>
-      </class> <!-- com.tests.transaction.CreateNewPOCompanyTest -->
+      </class> <!-- com.tests.AddCompanyTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

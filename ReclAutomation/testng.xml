@@ -1,16 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="false" thread-count="1" verbose="8">
-
-<test name="test name FIRST">
-    <parameter name="env" value="DEFAULT"/>
-   
+<suite name="Suite">
+  <test thread-count="5" name="Test">
     <classes>
-      <class name="com.tests.regression.MasterRegressionSuite"/> 
-         <class name="com.tests.regression.MasterEditRegressionSuite"/>
-        <!--  <class name="com.tests.regression.CreateNewExFactoryPoRegressionSuite"/> -->
+      <class name="com.tests.EditCustomerTest"/>
+      <class name="com.tests.datadriven.AddMagazineTestDD"/>
+      <class name="com.tests.AddTransporterTest"/>
+      <class name="com.tests.datadriven.AddVehicleTestDD"/>
+      <class name="com.tests.datadriven.AddSecurityGuardTestDD"/>
+      <class name="com.tests.transaction.CreateNewAccessoryPOCompanyTest"/>
+      <class name="com.tests.AddMagazineTest"/>
+      <class name="com.pageObjects.Transaction.SampleTest"/>
+      <class name="com.library.ExtentReportsClass"/>
+      <class name="com.tests.datadriven.AddCompanyDD"/>
+      <class name="com.tests.EditMagazineTest"/>
+      <class name="com.tests.EditCompanyTest"/>
+      <class name="com.tests.regression.CreatePoCompanyRegressionSuite"/>
+      <class name="com.tests.datadriven.AddSecurityAgencyTestDD"/>
+      <class name="com.tests.regression.MasterEditRegressionSuite"/>
+      <class name="com.tests.AddSecurityGuardTest"/>
+      <class name="com.tests.EditSecurityAgencyTest"/>
+      <class name="com.tests.regression.CreateNewAccessoryPORegression"/>
+      <class name="com.tests.transaction.UpdatePOStatusApproverAdminTest"/>
+      <class name="com.tests.NewTest"/>
+      <class name="com.tests.AddSecurityAgencyTest"/>
+      <class name="com.tests.datadriven.AddCustomerTestDD"/>
+      <class name="com.tests.EditTransporterTest"/>
+      <class name="com.tests.AddVehicleTransporterTest"/>
+      <class name="com.tests.AddCustomerTest"/>
+      <class name="com.tests.AddVehicleTest"/>
+      <class name="com.tests.transaction.CreateNewPoExFactoryTest"/>
+      <class name="com.tests.regression.MasterRegressionSuite"/>
+      <class name="com.tests.AddItemTest"/>
+      <class name="com.tests.EditDriverTest"/>
+      <class name="com.tests.AddVehicleExFactoryTest"/>
+      <class name="com.tests.datadriven.AddTransporterTestDD"/>
+      <class name="com.tests.EditSecurityGuardTest"/>
+      <class name="com.tests.AddCompanyTest"/>
+      <class name="com.tests.datadriven.LoginTestDataDriven"/>
+      <class name="com.tests.MyTest"/>
+      <class name="com.pageObjects.AddItemExcelReadedTEST"/>
+      <class name="com.tests.EditItemTest"/>
+      <class name="com.tests.EditVehicleTest"/>
+      <class name="com.tests.transaction.CreateNewPOCompanyTest"/>
+      <class name="com.tests.RandomTest"/>
+      <class name="com.tests.transaction.UpdatePoStatusDispatchAdminTest"/>
+      <class name="com.tests.AddDriverTest"/>
+      <class name="com.tests.datadriven.AddItemTestDD"/>
+      <class name="com.tests.regression.CreateNewExFactoryPoRegressionSuite"/>
+      <class name="com.tests.transaction.UpdatePoStatusCompletedAdminTest"/>
     </classes>
-</test>
-
-
+  </test> <!-- Test -->
 </suite> <!-- Suite -->
