@@ -16,13 +16,12 @@ public class AddCompanyTest extends StartTest {
 
 
 	
-	 public AddCompanyTest() { // TODO Auto-generated constructor
-	
-		 
-	 }
+//	 public AddCompanyTest() { // TODO Auto-generated constructor
+//	
+//		 
+//	 }
 //	 
-	
-	
+
 	
  
 	@Test(priority = 1)
