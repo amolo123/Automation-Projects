@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="false" thread-count="1" verbose="8">
+
+<test name="test name FIRST">
+    <parameter name="env" value="DEFAULT"/>
+   
+    <classes>
+      <class name="com.tests.regression.MasterRegressionSuite"/> 
+         <class name="com.tests.regression.MasterEditRegressionSuite"/>
+        <!--  <class name="com.tests.regression.CreateNewExFactoryPoRegressionSuite"/> -->
+    </classes>
+</test>
+
+
+</suite> <!-- Suite -->

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="8">
+  <test thread-count="1" name="test name FIRST(failed)" verbose="8">
+    <parameter name="env" value="DEFAULT"/>
+    <classes>
+      <class name="com.tests.regression.MasterRegressionSuite">
+        <methods>
+          <include name="addCompanyTest"/>
+          <include name="tearDown"/>
+          <include name="afterMethod"/>
+          <include name="addSecurityGuard"/>
+          <include name="addSecurityAgency"/>
+          <include name="setUp"/>
+          <include name="openBrowser"/>
+          <include name="getResult"/>
+          <include name="addDriver"/>
+        </methods>
+      </class> <!-- com.tests.regression.MasterRegressionSuite -->
+      <class name="com.tests.regression.MasterEditRegressionSuite">
+        <methods>
+          <include name="editItem"/>
+          <include name="editVehicle"/>
+          <include name="setUp"/>
+          <include name="addSecurityAgency"/>
+          <include name="openBrowser"/>
+          <include name="getResult"/>
+          <include name="editCompanyTest"/>
+          <include name="afterMethod"/>
+          <include name="editMagazine"/>
+          <include name="tearDown"/>
+          <include name="addSecurityGuard"/>
+          <include name="editCustomerTest"/>
+          <include name="addDriver"/>
+          <include name="addTransporter"/>
+        </methods>
+      </class> <!-- com.tests.regression.MasterEditRegressionSuite -->
+    </classes>
+  </test> <!-- test name FIRST(failed) -->
+</suite> <!-- Failed suite [Suite] -->
