@@ -14,7 +14,7 @@ import com.library.CalenderHandle;
 public class EditMagazinePage {
 	
 	
-WebDriver driver;
+	WebDriver driver;
 	
 	By magazineType = By.xpath("//select[@formcontrolname='type']");
 	

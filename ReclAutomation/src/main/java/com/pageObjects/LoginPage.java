@@ -62,13 +62,13 @@ public class LoginPage {
 	
 	public void submitChk() {
 		
-		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebDriverWait wait = new WebDriverWait(driver, 1);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(subck));
 		
 		String actual3 = driver.findElement(subck).getText();
  		System.out.println(actual3);
  		
- 		String message = "Explosive Expertise since 1979";
+ 		String message = "Explosive Expertise since 197";
  		Assert.assertEquals(actual3, message);
  		System.out.println("Assert success submit success");
  		

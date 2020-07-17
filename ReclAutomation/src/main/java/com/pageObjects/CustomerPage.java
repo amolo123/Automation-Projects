@@ -18,7 +18,7 @@ public class CustomerPage {
 	
 	By addCustomer = By.xpath("//span[text()=' Add Customer ']");
 	
-	By editLast = By.xpath("//div[@role='toolbar']//button[@tooltip='Edit Customer']");
+	By editLast = By.xpath("//i[@class='fas fa-pen-alt text-warning']");
 	
 	
 	

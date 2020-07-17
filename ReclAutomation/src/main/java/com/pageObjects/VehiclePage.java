@@ -15,7 +15,7 @@ public class VehiclePage {
 	
 	By addVehiclePage = By.xpath("//span[text()='Add Vehicle']");
 	
-	By editLast = By.xpath("//div[@role='toolbar']//button[@tooltip='Edit Vehicle']");
+	By editLast = By.xpath("//i[@class='fas fa-pen-alt text-warning']");
 	
 	
 	public VehiclePage(WebDriver driver) {

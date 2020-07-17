@@ -17,9 +17,11 @@ import com.pageObjects.AddTransporterPage;
 import com.pageObjects.AddVehiclePage;
 import com.pageObjects.AllPoPage;
 import com.pageObjects.CompanyPage;
+import com.pageObjects.CreateGateInEntryPage;
 import com.pageObjects.CreateNewPoPage;
 import com.pageObjects.CustomerPage;
 import com.pageObjects.DriverPage;
+import com.pageObjects.GateInList;
 import com.pageObjects.HomePage;
 import com.pageObjects.ItemPage;
 import com.pageObjects.LoginPage;
@@ -36,7 +38,7 @@ public class StartTestTransaction extends ExtentReportsClass {
 	public WebDriver driver;
 	//public WebDriver driver2;
 	
-	String baseurl="http://recl-qa-web.s3-website.ap-south-1.amazonaws.com/index.html";
+	String baseurl="https://appqa.reclindia.com/";
 	
 	
 	LoginPage login;
@@ -61,12 +63,13 @@ public class StartTestTransaction extends ExtentReportsClass {
 	AddDriverPage addDriverPage;
     CreateNewPoPage createNewPoPage;
 	AllPoPage allPoPage;
-	
+	CreateGateInEntryPage createGateInEntryPage;
+	GateInList gateInList;
 	
 	@BeforeTest
 	public void openBrowser(){
 		 
-		
+
 		System.setProperty("webdriver.chrome.driver", driverPath);
 	    driver=new ChromeDriver();
 	   // driver2=new ChromeDriver(); 
@@ -99,9 +102,10 @@ public class StartTestTransaction extends ExtentReportsClass {
 	    addDriverPage = new AddDriverPage(driver);
 	    createNewPoPage = new CreateNewPoPage(driver);
 	    allPoPage = new AllPoPage(driver);
+	    createGateInEntryPage = new CreateGateInEntryPage(driver);
+	    gateInList = new GateInList(driver);
 	    
-	    
-	    login.usernameInput("admin@gmail.com");
+	    login.usernameInput("amol.gaymukhe29@gmail.com");
 		login.passwordInput("password");
 		
 		login.SignInButtonClick();

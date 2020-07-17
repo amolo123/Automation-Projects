@@ -15,7 +15,7 @@ public class MagzinePage {
 	
 	By addMagzine = By.xpath("//span[text()='Add Magazine']");
 	
-	By editLast = By.xpath("//div[@role='toolbar']//button[@tooltip='Edit magazine']");
+	By editLast = By.xpath("//i[@class='fas fa-pen-alt text-warning']");
 	
     
     public MagzinePage(WebDriver driver) {

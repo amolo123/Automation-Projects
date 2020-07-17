@@ -12,7 +12,7 @@ public class AllPoPage {
 	WebDriver driver;
 	
 	
-	By firstRecord= By.xpath("//div[@data-label='PO No.']/a");
+	By firstRecord= By.xpath("//td[@data-label='Po No']/a");
 	
 	
 	public AllPoPage(WebDriver driver) {

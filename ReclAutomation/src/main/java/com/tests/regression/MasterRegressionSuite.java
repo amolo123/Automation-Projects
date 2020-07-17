@@ -3,17 +3,14 @@ package com.tests.regression;
 import java.io.IOException;
 import java.util.Random;
 
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.Test;
 
-import com.library.Utility;
+import org.testng.annotations.Test;
 
 
 public class MasterRegressionSuite extends StartRegressionTest {
 
 	@Test(priority = 2)
-	public void customerAdding() throws IOException {
+	public void customerAdding() throws IOException, InterruptedException {
 		
 		test= extent.createTest("Add Customer Test");
 
@@ -32,31 +29,21 @@ public class MasterRegressionSuite extends StartRegressionTest {
 		System.out.println("Customer clicked");
 		addCustomerPage.customerName("Dinesh Mahale");
 		Random rand = new Random();
-		int num= rand.nextInt(10000);
+		int num= rand.nextInt(100000);
 		
-		int num2 = rand.nextInt(10000);
+		int num2 = rand.nextInt(100000);
 		addCustomerPage.email("Dinesh"+"tg"+num+"@gmail.com");
-		addCustomerPage.mobileNo("973456"+num2);
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		addCustomerPage.mobileNo("9734569"+num2);
+	
 
 		addCustomerPage.telephone("9404950930");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+	
 
 		addCustomerPage.address("231 Divya apartment Lodhi Road");
+		Thread.sleep(2000);
+		
 		addCustomerPage.state("Maharashtra");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		Thread.sleep(2000);
 
 		addCustomerPage.district("Akola");
 		addCustomerPage.taluka("Rahamala");
@@ -83,40 +70,22 @@ public class MasterRegressionSuite extends StartRegressionTest {
 		addItemPage.typeSelectDrop("Detonators"); // Detonators or Explosive
 		addItemPage.shortNameInput("Kamov KA");
 		addItemPage.categoryInput();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		
 
 		addItemPage.uom();
 		addItemPage.dispOrderInp("3000");
 		addItemPage.nameInp("KAMOV BOMBER KA");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 
-		
-		
+
 		addItemPage.pesocodeInp("23456");
 		addItemPage.itemcartageInp("KCCX BDD 234 mm");
 		addItemPage.tokenNoInp("0");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+	
 
 		addItemPage.itemCatInp("DET");
 		addItemPage.qtyInp("10");
 		addItemPage.classAndDivInp("3 2");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+	
 
 		addItemPage.kgmtrnosuom("24");
 		addItemPage.groupDesc("0");
@@ -148,11 +117,7 @@ public class MasterRegressionSuite extends StartRegressionTest {
 
 		magzinePage.addMagzineClick();
 
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		
 
 		addMagazinePage.magazineTypeSelect(2); // 1 for detonators 2 for explosives
 		
@@ -162,29 +127,17 @@ public class MasterRegressionSuite extends StartRegressionTest {
 
 		addMagazinePage.magazineDetailInput("Mag/Det/3456");
 
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		
 
-		addMagazinePage.licenceExpiryInput("03/12/2020");
+		addMagazinePage.licenceExpiryInput("08/28/2020");
 
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+	
 
 		addMagazinePage.customerCodeSelect("60003");
 
 		addMagazinePage.customerNameSelect("GANPATI ENTERPRISES");
 
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		
 
 		addMagazinePage.contactNameInput("Rahul Bajaj");
 
@@ -194,21 +147,13 @@ public class MasterRegressionSuite extends StartRegressionTest {
 
 		addMagazinePage.pinInput("40025");
 
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		
 
 		addMagazinePage.stateSelect("Gujarat");
 
 		addMagazinePage.districtSelect("Amreli");
 
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+	
 
 		addMagazinePage.talukaInput("Mahalkhera");
 
@@ -244,47 +189,27 @@ public class MasterRegressionSuite extends StartRegressionTest {
 		}
 
 		addVehiclePage.vehicleOwnerSelect("Company"); // 0-company 1- transporter 2-infactory
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		
 
 		
-		addVehiclePage.vehicleNoInput("MB3459AD");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		addVehiclePage.vehicleNoInput("MB34-AD-");
+		
 
 		addVehiclePage.vehicleDescription("Tatra Truck Six Wheeler");
 
 		addVehiclePage.capacityInput("50000");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+	
 		
 		Random rand =new Random();
 		int num=rand.nextInt(10000);
 
 		addVehiclePage.licenceNoInput("DL23567P"+num);
 		addVehiclePage.licenceExpDateSelect("03/15/2024");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		
 
 		addVehiclePage.insuranceUpto("04/15/2023");
 		addVehiclePage.form38date("04/24/2020");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		
 
 		addVehiclePage.nationalPermitdate("07/24/2020");
 		try {
@@ -429,7 +354,7 @@ public class MasterRegressionSuite extends StartRegressionTest {
 
 		addSecurityGuardPage.guardNameInp("Vimal Dhoke");
 
-		addSecurityGuardPage.agencySelect("Ahmedi Security Services");
+		addSecurityGuardPage.agencySelect("Subhash Security Services");
 
 		addSecurityGuardPage.address1Inp("546 Hasbanda Building");
 
@@ -451,7 +376,7 @@ public class MasterRegressionSuite extends StartRegressionTest {
 
 		addSecurityGuardPage.idNoInp("BE 23567");
 
-		System.out.println("Pincode Mobile Typeinput Success id no inp");
+		System.out.println("Pincode Mobile Type input Success id no inp");
 
 		addSecurityGuardPage.submit();
 
@@ -494,43 +419,7 @@ public class MasterRegressionSuite extends StartRegressionTest {
 		driver.quit();
 	}
 	
-    @AfterMethod
-	 public void afterMethod(ITestResult result)
-	 {
-	     try
-	  {
-	     if(result.getStatus() == ITestResult.SUCCESS)
-	     {
-
-	         //Do something here
-	         System.out.println(result.getName()+""+"passed **********");
-	     }
-
-	     else if(result.getStatus() == ITestResult.FAILURE)
-	     {
-	          //Do something here
-	         System.out.println(result.getName()+""+"Failed ***********");
-	         Utility.captureScreenshot(driver, result.getName());
-	         
-	    		
-
-	     }
-
-	      else if(result.getStatus() == ITestResult.SKIP ){
-
-	         System.out.println(result.getName()+""+"Skiped***********");
-
-	     }
-	     
-	     
-	 }
-	    catch(Exception e)
-	    {
-	      e.printStackTrace();
-	    }
-
-	 }
-  
+   
 	
 	
 	

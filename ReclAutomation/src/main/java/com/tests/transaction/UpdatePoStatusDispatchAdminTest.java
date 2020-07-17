@@ -8,23 +8,20 @@ import org.testng.annotations.Test;
 
 import com.tests.StartTest;
 
-public class UpdatePoStatusDispatchAdminTest extends StartTestTransaction {
+public class UpdatePoStatusDispatchAdminTest extends StartTest{
 	
 	@Test(priority=1)
 	public void firstRecordClick() throws InterruptedException {
 		
+		test = extent.createTest("Dispatch Status Test");
+		
 		homePage.transactionClick();
+		
+		Thread.sleep(3000);
 		
 		homePage.allPoClick();
 		
 		
-		
-		
-	}
-	
-	
-	@Test(priority=2)
-	public void updatePoStatusDispatchAdminTest() throws InterruptedException {
 		
 		allPoPage.firstRecordClick();
 		Thread.sleep(2000);
@@ -45,14 +42,14 @@ public class UpdatePoStatusDispatchAdminTest extends StartTestTransaction {
 		createNewPoPage.invNoInput("ARM2345");
 		System.out.println("Invoice inputted ");
 		
-		createNewPoPage.invDateInput("03/22/2020");
+		createNewPoPage.invDateInput("07/17/2020");
 		System.out.println("invoice date Clicked");
 		
 		createNewPoPage.submit();
 		
 		createNewPoPage.updateSubmitchk();
 		
-		
+		driver.quit();
 		
 	
 	}

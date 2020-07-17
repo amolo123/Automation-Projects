@@ -51,7 +51,7 @@ public class EditMagazineTest extends StartTest {
 			e.printStackTrace();
 		}
 
-		editMagazinePage.licenceExpiryInput("05/24/2020");
+		editMagazinePage.licenceExpiryInput("05/24/2022");
 
 		try {
 			Thread.sleep(2000);

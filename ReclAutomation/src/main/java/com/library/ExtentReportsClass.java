@@ -25,6 +25,7 @@ public class ExtentReportsClass {
     @BeforeSuite
     public void setUp()
     {
+    	
         htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") +"/test-output/MyOwnReport.html");
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);

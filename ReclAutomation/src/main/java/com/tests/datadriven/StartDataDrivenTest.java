@@ -31,7 +31,7 @@ public class StartDataDrivenTest {
 	public WebDriver driver;
 	//public WebDriver driver2;
 	
-	String baseurl="http://recl-qa-web.s3-website.ap-south-1.amazonaws.com/index.html";
+	String baseurl="https://appqa.reclindia.com/";
 	
 	
 	LoginPage login;

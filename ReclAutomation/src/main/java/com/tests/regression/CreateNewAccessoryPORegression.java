@@ -21,7 +21,7 @@ public class CreateNewAccessoryPORegression extends StartRegressionTest{
 		
 	 homePage.createNewAccessory();
 	 
-	 createNewAccessoryPoPage.companyNameSelect("Maharashtra Explosives");
+	 createNewAccessoryPoPage.companyNameSelect("Maharashtra Explosives Pvt Ltd");
 	 
 	 createNewAccessoryPoPage.customerNameSelect("GANPATI ENTERPRISES");
 	 
@@ -31,13 +31,13 @@ public class CreateNewAccessoryPORegression extends StartRegressionTest{
 	 
 	 
 	 
-	 createNewAccessoryPoPage.magazineCode("Explo-E/HQ/RJ/21/206(E25019)");
+	 createNewAccessoryPoPage.magazineCode("Mag/Det/3456434r");
 	 
 	 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 	 
 	 createNewAccessoryPoPage.re11No("454677");
 	 
-	 createNewAccessoryPoPage.browseSelect("/home/ankita/Pictures/jpeg43.jpg");
+	 createNewAccessoryPoPage.browseSelect("/home/ankita/Downloads/sample.pdf");
 	 
 	 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 	 //driver.quit();

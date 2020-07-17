@@ -2,6 +2,7 @@ package com.library;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -45,7 +46,7 @@ public class CalenderHandle extends StartTest {
 		String year = split[2];
 		System.out.println(year);
 		
-		//=====================CREATING DAY =========================
+		//===================== CREATING DAY =========================
 		
 		String day2=CharMatcher.is('0').trimLeadingFrom(day);
 		
@@ -55,7 +56,8 @@ public class CalenderHandle extends StartTest {
 		String secondpart = day2 +"']";
 
 		String finalpart = firstpart + secondpart;
-		System.out.println(finalpart);
+		System.out.println("Final PART :"+finalpart);
+		
 		// ------------------------------------------------
 		
 		//span[text()='22']
@@ -128,12 +130,16 @@ public class CalenderHandle extends StartTest {
 		List<WebElement> myElements=driver.findElements(By.xpath(finalpart));
 		
 		
-		System.out.println(myElements.size());
+		System.out.println("The size is:"+myElements.size());
+		for(int i=0;i<myElements.size();i++){
+		    System.out.println(myElements.get(i));
+		} 
 		
+	  
 		//int number = Integer.parseInt(s)
 		//String day2=CharMatcher.is('0').trimLeadingFrom(day);
 		//System.out.println(day2);
-		if (myElements.size()>0 && Integer.parseInt(day2)>20) {
+		if (myElements.size()>1 && Integer.parseInt(day2)>20) {
 			
 			System.out.println("Condition success!!");
 			((WebElement) myElements.get(1)).click();

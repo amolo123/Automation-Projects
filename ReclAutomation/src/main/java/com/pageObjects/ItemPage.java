@@ -14,7 +14,7 @@ public class ItemPage {
 	
 	By addItem = By.xpath("//span[text()='Add Item']");
 	
-	By editLast = By.xpath("//div[@role='toolbar']//button[@tooltip='Edit Item']");
+	By editLast = By.xpath("//i[@class='fas fa-pen-alt text-warning']");
 	
 	
 	

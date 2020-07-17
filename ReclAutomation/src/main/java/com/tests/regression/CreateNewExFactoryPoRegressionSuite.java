@@ -5,15 +5,21 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.library.Utility;
 import com.tests.StartTest;
 
-public class CreateNewExFactoryPoRegressionSuite extends StartTest{
+public class CreateNewExFactoryPoRegressionSuite extends StartRegressionTest{
 
 	
 	@Test(priority=1)
 	public void createNewPO() throws  InterruptedException, IOException{
+		
+		test = extent.createTest("Create New Ex Factory Po");
 	 
 	 homePage.transactionClick();
 	 
@@ -21,7 +27,7 @@ public class CreateNewExFactoryPoRegressionSuite extends StartTest{
 		
 	 homePage.createNewPoClick();
 	 
-	 createNewPoPage.companyNameSelect("Maharashtra Explosives");
+	 createNewPoPage.companyNameSelect("Maharashtra Explosives Pvt Ltd");
 	 
 	 createNewPoPage.customerNameSelect("CHARBHUJA NATH");
 	 
@@ -32,9 +38,8 @@ public class CreateNewExFactoryPoRegressionSuite extends StartTest{
 	 
 	 createNewPoPage.vehicleNoSelect();
 	 
-	
 	 
-	 createNewPoPage.magazineCode("4545454");
+	 createNewPoPage.magazineCode("E/HQ/RJ/21/177(E-2734)");
 	 
 	 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 	 
@@ -63,58 +68,62 @@ public class CreateNewExFactoryPoRegressionSuite extends StartTest{
 	 
 	 createNewPoPage.submitchk();
 	 
-	 
-	 
  }
 	
 	
-	@Test(priority=2)
-	public void updatePoStatusAdmin() throws InterruptedException, IOException {
+	@Test(priority = 2)
+	public void updatePoStatusApproveAdmin() throws InterruptedException, IOException {
+
+		test=extent.createTest("Approve New PO");
 		
-		
-		
+		//homePage.transactionClick();
+
+		homePage.allPoClick();
+
 		allPoPage.firstRecordClick();
-		
+
 		createNewPoPage.vehicleNoSelect();
-		
+
 		createNewPoPage.availabilityDateSelect("03/19/2020");
+		
 		
 		createNewPoPage.poStatusSelect("Approved");
 		
+		createNewPoPage.re11Verify();
+		
+
 		createNewPoPage.submit();
-		
+
 		createNewPoPage.updateSubmitchk();
-		
-		
-		
-	
+
 	}
 	
 	
 	@Test(priority=3)
 	public void updatePoStatusDispatchAdminTest() throws InterruptedException {
 		
+		test=extent.createTest("Dispartch New PO");
+		
+		//homePage.transactionClick();
+		
+		homePage.allPoClick();
+		
 		allPoPage.firstRecordClick();
-		Thread.sleep(2000);
+		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		createNewPoPage.poStatusSelect("Dispatched");
-		System.out.println("Dispatched Clicked");
 		
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		System.out.println("Status changed to dispatched dispatched");
 		
-		jse.executeScript("window.scrollBy(0,1000)");
-		
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-		LocalDate localDate = LocalDate.now();
-		String dt =dtf.format(localDate); //2016/11/16
-		System.out.println(dt);
-		
-		
-		createNewPoPage.invNoInput("ARM2345");
-		System.out.println("Invoice inputted ");
+		createNewPoPage.invNoInput("NDF123231");
 		
 		createNewPoPage.invDateInput("03/22/2020");
-		System.out.println("invoice date Clicked");
 		
 		createNewPoPage.submit();
 		
@@ -122,35 +131,132 @@ public class CreateNewExFactoryPoRegressionSuite extends StartTest{
 		
 		
 		
-	
 	}
 	
 	
-//	@Test (priority=4)
-//	public void updatePoStatusCompleted() throws InterruptedException {
-//		
-//		allPoPage.firstRecordClick();
-//		
-//		Thread.sleep(2000);
-//		
-//		createNewPoPage.poStatusSelect("Completed");
-//		
-//		JavascriptExecutor jse = (JavascriptExecutor) driver;
-//		
-//		jse.executeScript("window.scrollBy(0,1000)");
-//		
-//		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-//		LocalDate localDate = LocalDate.now();
-//		String dt =dtf.format(localDate); //2016/11/16
-//		System.out.println(dt);
-//		
-//		createNewPoPage.goodsReceiptDateSelect("2/22/2020");
-//		
-//		createNewPoPage.submit();
-//		
-//		createNewPoPage.submitchk();
-//		
-//	}
+	@Test(priority=4)
+	public void creteGateInEntry() throws IOException, InterruptedException {
+		
+		test= extent.createTest("Create New PO");
+		homePage.transactionClick();
+		Thread.sleep(1500);
+		homePage.gate();
+		Thread.sleep(1500);
+		
+		homePage.createGateInEntry();
+		
+		createGateInEntryPage.tokenNoInput();
+		
+		createGateInEntryPage.submit();
+		
+		createGateInEntryPage.driverNameInput();
+		
+		createGateInEntryPage.vanStatusSelect();
+		
+		createGateInEntryPage.re11StatusSelect();
+		
+		createGateInEntryPage.re11OkYes();
+		
+		createGateInEntryPage.submitFinal();
+		
+		
+	}
+	
+	
+	
+	@Test(priority=5)
+	public void gateOut() throws InterruptedException {
+		
+		test= extent.createTest("gate out");
+		
+		//homePage.gate();
+		
+		Thread.sleep(2000);
+		
+		homePage.gateInList();
+		
+		gateInList.gateOutClick();
+		
+		gateInList.securityGuardSelect();
+		
+		//gateInList.loadedWeight();
+		
+		gateInList.vanStatusSelect();
+		
+		gateInList.submitClick();
+		
+	}
+	
+	
+	@Test(priority = 6)
+	public void statusComplete() throws InterruptedException {
+
+		test = extent.createTest("Complete status Test");
+
+		homePage.transactionClick();
+
+		Thread.sleep(2000);
+
+		homePage.allPoClick();
+
+		allPoPage.firstRecordClick();
+
+		Thread.sleep(2000);
+
+		createNewPoPage.poStatusSelect("Completed");
+
+
+
+		createNewPoPage.goodsReceiptDateSelect("3/12/2020");
+
+		createNewPoPage.submit();
+
+		createNewPoPage.updateSubmitchk();
+		
+		driver.quit();
+
+	}
+	
+	
+
+	
+	
+	@AfterMethod
+	 public void afterMethod(ITestResult result)
+	 {
+	     try
+	  {
+	     if(result.getStatus() == ITestResult.SUCCESS)
+	     {
+
+	         //Do something here
+	         System.out.println(result.getName()+""+"passed **********");
+	     }
+
+	     else if(result.getStatus() == ITestResult.FAILURE)
+	     {
+	          //Do something here
+	         System.out.println(result.getName()+""+"Failed ***********");
+	         Utility.captureScreenshot(driver, result.getName());
+	         
+	    		
+
+	     }
+
+	      else if(result.getStatus() == ITestResult.SKIP ){
+
+	         System.out.println(result.getName()+""+"Skiped***********");
+
+	     }
+	     
+	     
+	 }
+	    catch(Exception e)
+	    {
+	      e.printStackTrace();
+	    }
+
+	 }
 	
 	
 	

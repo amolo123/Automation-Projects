@@ -14,33 +14,37 @@ public class CreateNewPOCompanyTest extends StartTest {
 	@Test(priority=1)
 	public void createNewPO() throws InterruptedException {
 		
-		test = extent.createTest("Create New PO");
+	test = extent.createTest("Create New PO");
 	 
 	 homePage.transactionClick();
 	 
 	 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 		
-	 homePage.createNewPoClick();
+	
 	 
-	 createNewPoPage.companyNameSelect("Maharashtra Explosives");
+	 //createNewPoPage.companyNameSelect("Rajasthan Explosives Chemicals Limited");
 	 
-	 createNewPoPage.customerNameSelect("Malti Bhagat");
+	 for(int i=0;i<=5;i++) {
+	 
+		homePage.createNewPoClick();	 
+		 
+	 createNewPoPage.customerNameSelect("GANPATI ENTERPRISES");
 	 
 	 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 	 
 	 createNewPoPage.companyRadioButtonSelect();
 	 
-	 createNewPoPage.magazineCode("BRD232BT234597");
+	 createNewPoPage.magazineCode("E/HQ/RJ/21/206(E25018)");
 	 
 	 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 	 
 	 createNewPoPage.re11No("454677");
 	 
-	 createNewPoPage.browseSelect("/home/ankita/Pictures/jpeg43.jpg");
+	 createNewPoPage.browseSelect("/home/ankita/Downloads/sample.pdf");
 	 
 	 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 	 //driver.quit();
-	 createNewPoPage.re11DateSelect("03/04/2020");
+	 createNewPoPage.re11DateSelect("05/07/2020");
 	 
 	 createNewPoPage.re11QtyInp();
 	 
@@ -51,7 +55,7 @@ public class CreateNewPOCompanyTest extends StartTest {
 	 
 	 
 	 
-	 //createNewPoPage.orderQty();
+
 	 
 	 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 	 
@@ -59,7 +63,9 @@ public class CreateNewPOCompanyTest extends StartTest {
 	 
 	 createNewPoPage.submitchk();
 	 
-	 
+	 try {Thread.sleep(4000);} catch (InterruptedException e) {e.printStackTrace();}
+ } 
+	 driver.quit();
 	 
  }
 

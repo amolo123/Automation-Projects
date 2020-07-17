@@ -31,7 +31,7 @@ public class CreatePoCompanyRegressionSuite extends StartRegressionTest{
 
 		homePage.createNewPoClick();
 
-		createNewPoPage.companyNameSelect("Maharashtra Explosives");
+		createNewPoPage.companyNameSelect("Maharashtra Explosives Pvt Ltd");
 
 		createNewPoPage.customerNameSelect("GANPATI ENTERPRISES");
 
@@ -43,7 +43,7 @@ public class CreatePoCompanyRegressionSuite extends StartRegressionTest{
 
 		createNewPoPage.companyRadioButtonSelect();
 
-		createNewPoPage.magazineCode("BED34567SE123");
+		createNewPoPage.magazineCode("E/HQ/RJ/21/206(E25018)");
 
 		try {
 			Thread.sleep(2000);
@@ -53,7 +53,7 @@ public class CreatePoCompanyRegressionSuite extends StartRegressionTest{
 
 		createNewPoPage.re11No("454677");
 
-		createNewPoPage.browseSelect("/home/ankita/Pictures/jpeg43.jpg");
+		createNewPoPage.browseSelect("/home/ankita/Downloads/sample.pdf");
 
 		try {
 			Thread.sleep(2000);
@@ -91,6 +91,8 @@ public class CreatePoCompanyRegressionSuite extends StartRegressionTest{
 	public void updatePoStatusApproveAdmin() throws InterruptedException, IOException {
 
 		test=extent.createTest("Approve New PO");
+		
+		//homePage.transactionClick();
 
 		homePage.allPoClick();
 
@@ -99,8 +101,12 @@ public class CreatePoCompanyRegressionSuite extends StartRegressionTest{
 		createNewPoPage.vehicleNoSelect();
 
 		createNewPoPage.availabilityDateSelect("03/19/2020");
-
+		
+		
 		createNewPoPage.poStatusSelect("Approved");
+		
+		createNewPoPage.re11Verify();
+		
 
 		createNewPoPage.submit();
 
@@ -113,6 +119,8 @@ public class CreatePoCompanyRegressionSuite extends StartRegressionTest{
 	public void updatePoStatusDispatchAdminTest() throws InterruptedException {
 		
 		test=extent.createTest("Dispartch New PO");
+		
+		//homePage.transactionClick();
 		
 		homePage.allPoClick();
 		
@@ -141,35 +149,92 @@ public class CreatePoCompanyRegressionSuite extends StartRegressionTest{
 		
 	}
 	
-//	@Test (priority=4)
-//	public void updatePoStatusCompleted() throws InterruptedException {
-//		
-//		test=extent.createTest("Complete New PO");
-//		
-//		
-//		allPoPage.firstRecordClick();
-//		
-//		Thread.sleep(2000);
-//		
-//		createNewPoPage.poStatusSelect("Completed");
-//		
-//		JavascriptExecutor jse = (JavascriptExecutor) driver;
-//		
-//		jse.executeScript("window.scrollBy(0,1000)");
-//		
-//		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-//		LocalDate localDate = LocalDate.now();
-//		String dt =dtf.format(localDate); //2016/11/16
-//		System.out.println(dt);
-//		
-//		createNewPoPage.goodsReceiptDateSelect("02/22/2020");
-//		
-//		createNewPoPage.submit();
-//		
-//		createNewPoPage.submitchk();
-//		
-//	}
-//	
+	
+	@Test(priority=4)
+	public void creteGateInEntry() throws IOException, InterruptedException {
+		
+		test= extent.createTest("Create New PO");
+		homePage.transactionClick();
+		Thread.sleep(1500);
+		homePage.gate();
+		Thread.sleep(1500);
+		
+		homePage.createGateInEntry();
+		
+		createGateInEntryPage.tokenNoInput();
+		
+		createGateInEntryPage.submit();
+		
+		createGateInEntryPage.driverNameInput();
+		
+		createGateInEntryPage.vanStatusSelect();
+		
+		createGateInEntryPage.re11StatusSelect();
+		
+		createGateInEntryPage.re11OkYes();
+		
+		createGateInEntryPage.submitFinal();
+		
+		
+	}
+	
+	
+	
+	@Test(priority=5)
+	public void gateOut() throws InterruptedException {
+		
+		test= extent.createTest("gate out");
+		
+		//homePage.gate();
+		
+		Thread.sleep(2000);
+		
+		homePage.gateInList();
+		
+		gateInList.gateOutClick();
+		
+		gateInList.securityGuardSelect();
+		
+		//gateInList.loadedWeight();
+		
+		gateInList.vanStatusSelect();
+		
+		gateInList.submitClick();
+		
+	}
+	
+	
+	@Test(priority = 6)
+	public void statusComplete() throws InterruptedException {
+
+		test = extent.createTest("Complete status Test");
+
+		homePage.transactionClick();
+
+		Thread.sleep(2000);
+
+		homePage.allPoClick();
+
+		allPoPage.firstRecordClick();
+
+		Thread.sleep(2000);
+
+		createNewPoPage.poStatusSelect("Completed");
+
+
+
+		createNewPoPage.goodsReceiptDateSelect("3/12/2020");
+
+		createNewPoPage.submit();
+
+		createNewPoPage.updateSubmitchk();
+		
+		driver.quit();
+
+	}
+	
+	
+
 	
 	
 	@AfterMethod
@@ -190,7 +255,7 @@ public class CreatePoCompanyRegressionSuite extends StartRegressionTest{
 	         System.out.println(result.getName()+""+"Failed ***********");
 	         Utility.captureScreenshot(driver, result.getName());
 	         
-	    		driver.quit();
+	    		//driver.quit();
 
 	     }
 

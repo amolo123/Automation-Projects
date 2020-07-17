@@ -14,7 +14,7 @@ public class CompanyPage {
 
 	By addCompany = By.xpath("//span[text()=' Add Company']");
 
-	By editLast = By.xpath("//div[@role='toolbar']//button[@tooltip='Edit Company']");
+	By editLast = By.xpath("//i[@class='fas fa-pen-alt text-warning']");
 
 	public CompanyPage(WebDriver driver) {
 

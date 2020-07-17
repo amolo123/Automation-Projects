@@ -14,7 +14,7 @@ public class TransporterPage {
 	
 	By addTransporter = By.xpath("//span[text()='Add Transporter']");
 	
-	By editLast = By.xpath("//div[@role='toolbar']//button[@tooltip='Edit Transporter']");
+	By editLast = By.xpath("//i[@class='fas fa-pen-alt text-warning']");
 	
 	
 	public TransporterPage(WebDriver driver) {

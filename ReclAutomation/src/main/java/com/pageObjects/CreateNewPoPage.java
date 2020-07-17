@@ -19,6 +19,7 @@ import com.library.CalenderHandle;
 
 public class CreateNewPoPage {
 	
+	
 	WebDriver driver;
 	
 	By companyName = By.xpath("//ng-select[@formcontrolname='companyId']/div");
@@ -60,9 +61,11 @@ public class CreateNewPoPage {
 	
 	//==========================================
 	
+	By re11Verify= By.xpath("//input[@formcontrolname='re11Verified']");
+	
 	By status = By.xpath("//select[@formcontrolname='status']");
 	
-	By vehicleno = By.xpath("//ng-select[@formcontrolname='vehicleNo']/div");
+	By vehicleno = By.xpath("//ng-select[@formcontrolname='vehicleNo']");
 	
 	By availabilityDate = By.xpath("//input[@formcontrolname='availabilityDate']");
 	
@@ -71,7 +74,7 @@ public class CreateNewPoPage {
 	
 	By invDate = By.xpath("//input[@formcontrolname='invoiceDate' ]");
 	
-	By firstVehicle = By.xpath("//div[@class='ng-dropdown-panel-items scroll-host']//div[@class='ng-option ng-star-inserted']");
+	By firstVehicle = By.xpath("//ng-select[@formcontrolname='vehicleNo']//span[@class='ng-option-label ng-star-inserted']");
 	
 	By firstVehExfact= By.xpath("//div[@class='ng-option ng-option-marked ng-star-inserted']//span[@class='ng-option-label ng-star-inserted']");
 	
@@ -110,6 +113,8 @@ public class CreateNewPoPage {
 
 	public void customerNameSelect(String custname) {
 
+		
+		driver.findElement(customerName).click();
 		
 		
 		List<WebElement> myElements=driver.findElements(customerName);
@@ -230,37 +235,48 @@ public class CreateNewPoPage {
 	
 	//======================used while update PO========
 	
+	
+	public void re11Verify() {
+		
+		driver.findElement(re11Verify).click();
+	}
+	
+	
 	public void vehicleNoSelect() throws IOException {
 		
-		
-		List <WebElement> myElements =   driver.findElements(vehicleno);
-		
-		System.out.println(myElements.size());
-		
-		Iterator<WebElement> itr = myElements.iterator(); while(itr.hasNext()) {
-			
-			
-			System.out.println(itr.next().getText());
-		}
+//		
+//		List <WebElement> myElements =   driver.findElements(vehicleno);
+//		
+//		System.out.println(myElements.size());
+//		
+//		Iterator<WebElement> itr = myElements.iterator(); while(itr.hasNext()) {
+//			
+//			
+//			System.out.println(itr.next().getText());
+//		}
 	
-		((WebElement) myElements.get(0)).click();
-		
+		//((WebElement) myElements.get(0)).click();
+		driver.findElement(vehicleno).click();
 		
 		
 		List <WebElement> ele = driver.findElements(firstVehicle);
 		
 		String vehicle = ((WebElement) ele.get(0)).getText();
 		
-				FileWriter writer = new FileWriter("app.log");
-				 @SuppressWarnings("resource")
-				BufferedWriter bw = new BufferedWriter(writer); 
-
-				bw.write(vehicle);
-
+		System.out.println(vehicle);
+		try{
+		    // Create file 
+		    FileWriter fstream = new FileWriter("out.txt");
+		    BufferedWriter out = new BufferedWriter(fstream);
+		    out.write(vehicle);
+		    //Close the output stream
+		    out.close();
+		    }catch (Exception e){//Catch exception if any
+		      System.err.println("Error: " + e.getMessage());
+		    }
 				((WebElement) ele.get(0)).click(); 
 		
-		
-		
+				
 	}
 	
 	
@@ -290,7 +306,6 @@ public class CreateNewPoPage {
 	}
 	
 	
-	
 	public void invDateInput(String date) throws InterruptedException {
 		
 		
@@ -314,7 +329,7 @@ public class CreateNewPoPage {
 	
 	public void submitchk() {
 		
-  		WebDriverWait wait = new WebDriverWait(driver, 5);
+  		WebDriverWait wait = new WebDriverWait(driver, 8);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(subchk));
 		
 		String actual = driver.findElement(subchk).getText();
@@ -330,7 +345,7 @@ public class CreateNewPoPage {
 	
 	public void updateSubmitchk() {
 	
-		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebDriverWait wait = new WebDriverWait(driver, 8);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(updtsubchk));
 		
 		String actual = driver.findElement(updtsubchk).getText();

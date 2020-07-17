@@ -50,7 +50,7 @@ public class AddVehicleTest extends StartTest{
 		
 		int num2=rand.nextInt(100000);
 		addVehiclePage.licenceNoInput("DL23567PT4567"+num2);
-		addVehiclePage.licenceExpDateSelect("5/28/2020");
+		addVehiclePage.licenceExpDateSelect("4/28/2020");
 		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 		
 		

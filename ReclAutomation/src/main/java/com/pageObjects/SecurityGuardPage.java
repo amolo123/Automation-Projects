@@ -14,7 +14,7 @@ public class SecurityGuardPage {
 
 	By addSecuriyGuard = By.xpath("//span[text()='Add Security-Guard']");
 
-	By editLast = By.xpath("//div[@role='toolbar']//button[@tooltip='Edit Security-Guard']");
+	By editLast = By.xpath("//i[@class='fas fa-pen-alt text-warning']");
 
 	public SecurityGuardPage(WebDriver driver) {
 

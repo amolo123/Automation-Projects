@@ -43,40 +43,6 @@ public class AddCompanyDD extends StartTest {
 			String taluka = reader.getCellData("Sheet1", 8, i);
 			//String custname = reader.getCellData("Sheet1", 1, i);
 			
-//			Cell cell;
-//
-//			cell = sh1.getRow(i).getCell(1);
-//			String custname = cell.toString();
-//			System.out.println(custname);
-//
-//			cell = sh1.getRow(i).getCell(2);
-//			String email = cell.toString();
-//			System.out.println(email);
-//
-//			cell = sh1.getRow(i).getCell(3);
-//			String mobileno = cell.toString();
-//			System.out.println(mobileno);
-//
-//			cell = sh1.getRow(i).getCell(4);
-//			String telephone = cell.toString();
-//			System.out.println(telephone);
-//
-//			cell = sh1.getRow(i).getCell(5);
-//			String address = cell.toString();
-//			System.out.println(address);
-//
-//			cell = sh1.getRow(i).getCell(6);
-//			String state = cell.toString();
-//			System.out.println(state);
-//
-//			cell = sh1.getRow(i).getCell(7);
-//			String dist = cell.toString();
-//			System.out.println(dist);
-//
-//			cell = sh1.getRow(i).getCell(8);
-//			String taluka = cell.toString();
-//			System.out.println(taluka);
-
 			
 			customerPage.addcustomerClick();
 			

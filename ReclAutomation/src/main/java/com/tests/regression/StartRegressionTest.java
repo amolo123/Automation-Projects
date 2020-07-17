@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeTest;
 
 import com.beust.jcommander.Parameters;
@@ -30,10 +32,12 @@ import com.pageObjects.AddTransporterPage;
 import com.pageObjects.AddVehiclePage;
 import com.pageObjects.AllPoPage;
 import com.pageObjects.CompanyPage;
+import com.pageObjects.CreateGateInEntryPage;
 import com.pageObjects.CreateNewAccessoryPoPage;
 import com.pageObjects.CreateNewPoPage;
 import com.pageObjects.CustomerPage;
 import com.pageObjects.DriverPage;
+import com.pageObjects.GateInList;
 import com.pageObjects.HomePage;
 import com.pageObjects.ItemPage;
 import com.pageObjects.LoginPage;
@@ -52,7 +56,7 @@ public class StartRegressionTest extends ExtentReportsClass {
 	// public WebDriver driver2;
 	
 
-	String baseurl = "http://recl-qa-web.s3-website.ap-south-1.amazonaws.com/index.html";
+	String baseurl = "https://appqa.reclindia.com/";
 
 	public LoginPage login;
 	public HomePage homePage;
@@ -77,6 +81,9 @@ public class StartRegressionTest extends ExtentReportsClass {
 	public CreateNewPoPage createNewPoPage;
 	public AllPoPage allPoPage;
 	public CreateNewAccessoryPoPage createNewAccessoryPoPage;
+	
+	CreateGateInEntryPage createGateInEntryPage;
+	GateInList gateInList;
 
 	// =================Edit Page Objects================
 	public EditCompanyPage editCompanyPage;
@@ -99,6 +106,12 @@ public class StartRegressionTest extends ExtentReportsClass {
 			//create firefox instance
 				System.setProperty("webdriver.gecko.driver", driverPath2);
 				driver = new FirefoxDriver();
+				
+			FirefoxProfile profile = new FirefoxProfile();
+			profile.setPreference("permissions.default.desktop-notification", 1);
+			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+			capabilities.setCapability(FirefoxDriver.PROFILE, profile);
+				
 			}
 			//Check if parameter passed as 'chrome'
 			else if(browser.equalsIgnoreCase("chrome")){
@@ -147,6 +160,8 @@ public class StartRegressionTest extends ExtentReportsClass {
 		createNewPoPage = new CreateNewPoPage(driver);
 		allPoPage = new AllPoPage(driver);
 		createNewAccessoryPoPage = new CreateNewAccessoryPoPage(driver);
+		createGateInEntryPage = new CreateGateInEntryPage(driver);
+	    gateInList = new GateInList(driver);
 
   //=====================Edit Page Declared=========
 

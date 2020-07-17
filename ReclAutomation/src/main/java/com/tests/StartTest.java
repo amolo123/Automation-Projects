@@ -1,13 +1,20 @@
 package com.tests;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.library.ExtentReportsClass;
+import com.library.Utility;
 import com.pageEditObjects.EditCompanyPage;
 import com.pageEditObjects.EditCustomerPage;
 import com.pageEditObjects.EditDriverPage;
@@ -27,10 +34,12 @@ import com.pageObjects.AddTransporterPage;
 import com.pageObjects.AddVehiclePage;
 import com.pageObjects.AllPoPage;
 import com.pageObjects.CompanyPage;
+import com.pageObjects.CreateGateInEntryPage;
 import com.pageObjects.CreateNewAccessoryPoPage;
 import com.pageObjects.CreateNewPoPage;
 import com.pageObjects.CustomerPage;
 import com.pageObjects.DriverPage;
+import com.pageObjects.GateInList;
 import com.pageObjects.HomePage;
 import com.pageObjects.ItemPage;
 import com.pageObjects.LoginPage;
@@ -44,14 +53,15 @@ import com.pageObjects.VehiclePage;
 public class StartTest extends ExtentReportsClass {
 
 	public final String driverPath = "/usr/bin/chromedriver";
-	
+
 	public final String driverPath2 = "/usr/bin/geckodriver";
-	
+
 	public WebDriver driver;
 	// public WebDriver driver2;
 
-	String baseurl = "http://recl-qa-web.s3-website.ap-south-1.amazonaws.com/index.html";
-
+	String baseurl = "https://appqa.reclindia.com/";
+    String baseurl2 ="https://www.webpagetest.org/";
+	
 	public LoginPage login;
 	public HomePage homePage;
 	public CustomerPage customerPage;
@@ -73,9 +83,11 @@ public class StartTest extends ExtentReportsClass {
 	public DriverPage driverPage;
 	public AddDriverPage addDriverPage;
 	public CreateNewPoPage createNewPoPage;
-	public AllPoPage allPoPage;
+	public AllPoPage allPoPage; 
 	public CreateNewAccessoryPoPage createNewAccessoryPoPage;
-
+    public GateInList gateInList;
+    public CreateGateInEntryPage createGateInEntryPage;
+    
 	// =================Edit Page Objects================
 	public EditCompanyPage editCompanyPage;
 	public EditCustomerPage editCustomerPage;
@@ -94,32 +106,33 @@ public class StartTest extends ExtentReportsClass {
 
 	@BeforeMethod
 	public void openBrowser() {
-		
-		
-	String browser = "chrome";
-		
-		if(browser.equalsIgnoreCase("firefox")){
-			//create firefox instance
-				System.setProperty("webdriver.gecko.driver", driverPath2);
-				driver = new FirefoxDriver();
-			}
-			//Check if parameter passed as 'chrome'
-			else if(browser.equalsIgnoreCase("chrome")){
-				//set path to chromedriver.exe
-				System.setProperty("webdriver.chrome.driver", driverPath);
-				//create chrome instance
-				driver = new ChromeDriver();
-			}
-		
-		
-		
 
-		//System.setProperty("webdriver.chrome.driver", driverPath);
-		//driver = new ChromeDriver();
-	
-		//System.setProperty("webdriver.gecko.driver", driverPath2);
-		//driver=new FirefoxDriver();
-		
+		String browser = "chrome";
+
+		if (browser.equalsIgnoreCase("firefox")) {
+			// create firefox instance
+			System.setProperty("webdriver.gecko.driver", driverPath2);
+			driver = new FirefoxDriver();
+		}
+		// Check if parameter passed as 'chrome'
+		else if (browser.equalsIgnoreCase("chrome")) {
+			// set path to chromedriver.exe
+			
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--disable-notifications");
+			
+			
+			System.setProperty("webdriver.chrome.driver", driverPath);
+			// create chrome instance
+			driver = new ChromeDriver(options);
+		}
+
+		// System.setProperty("webdriver.chrome.driver", driverPath);
+		// driver = new ChromeDriver();
+
+		// System.setProperty("webdriver.gecko.driver", driverPath2);
+		// driver=new FirefoxDriver();
+
 		// driver2=new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(160, TimeUnit.SECONDS);
 
@@ -151,7 +164,10 @@ public class StartTest extends ExtentReportsClass {
 		createNewPoPage = new CreateNewPoPage(driver);
 		allPoPage = new AllPoPage(driver);
 		createNewAccessoryPoPage = new CreateNewAccessoryPoPage(driver);
-
+		gateInList = new GateInList(driver);
+		createGateInEntryPage = new CreateGateInEntryPage(driver);
+		
+		
 		// =====================Edit Page Declared=========
 
 		editCompanyPage = new EditCompanyPage(driver);
@@ -168,6 +184,43 @@ public class StartTest extends ExtentReportsClass {
 		login.passwordInput("password");
 
 		login.SignInButtonClick();
+		
+
+	}
+
+	@AfterMethod
+	public void afterMethod(ITestResult result) {
+		try {
+			if (result.getStatus() == ITestResult.SUCCESS) {
+
+				// Do something here
+				System.out.println(result.getName() + "" + "passed **********");
+			}
+
+			else if (result.getStatus() == ITestResult.FAILURE) {
+				// Do something here
+				System.out.println(result.getName() + "" + "Failed ***********");
+				String desti = Utility.captureScreenshot(driver, result.getName());
+				System.out.println(desti);
+                String destination= System.getProperty("user.dir") +desti;
+                System.out.println("File path is "+destination);
+                try {
+				test.addScreenCaptureFromPath(destination);
+                }catch(Exception e) {System.out.println("add Screenshot failure");}
+			}
+
+			else if (result.getStatus() == ITestResult.SKIP) {
+
+				System.out.println(result.getName() + "" + "Skiped***********");
+				String dest = Utility.captureScreenshot(driver, result.getName());
+                
+				test.addScreenCaptureFromPath(dest);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 

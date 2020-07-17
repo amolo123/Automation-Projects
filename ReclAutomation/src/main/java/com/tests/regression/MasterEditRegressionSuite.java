@@ -26,13 +26,9 @@ public class MasterEditRegressionSuite extends StartRegressionTest {
 		customerPage.editLast();
 
 		System.out.println("Customer in Edit Mode");
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		
 
-		editCustomerPage.customerName("Rohan Shirsh Sathe");
+		editCustomerPage.customerName("M/S Mahesh Traders");
 		
 		Random rand = new Random();
 		int num= rand.nextInt(10000);
@@ -55,12 +51,7 @@ public class MasterEditRegressionSuite extends StartRegressionTest {
 
 		editCustomerPage.district("Balasore");
 
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
+		
 		editCustomerPage.taluka("Falsaguda");
 
 		editCustomerPage.submit();
@@ -182,7 +173,7 @@ public class MasterEditRegressionSuite extends StartRegressionTest {
 			e.printStackTrace();
 		}
 
-		editMagazinePage.licenceExpiryInput("05/24/2020");
+		editMagazinePage.licenceExpiryInput("05/24/2022");
 
 		try {
 			Thread.sleep(2000);
@@ -393,8 +384,8 @@ public class MasterEditRegressionSuite extends StartRegressionTest {
 		editTransporterPage.address1Inp("204 Shradhannad Apartment Baraskantha");
 		editTransporterPage.address2Inp("M G Road Delhi");
 		editTransporterPage.pincodeInp("440022");
-		editTransporterPage.stateInp("Maharashtra");
-		editTransporterPage.districtInp("Beed");
+		editTransporterPage.stateInp("Gujarat");
+		editTransporterPage.districtInp("Anand");
 		editTransporterPage.submit();
 
 		editTransporterPage.editSubmitchk();
@@ -439,9 +430,9 @@ public class MasterEditRegressionSuite extends StartRegressionTest {
 
 		editSecurityAgencyPage.address2Inp("East Parliament Road");
 
-		editSecurityAgencyPage.stateSelect("Maharashtra");
+		editSecurityAgencyPage.stateSelect("Gujarat");
 
-		editSecurityAgencyPage.districtSelect("Beed");
+		editSecurityAgencyPage.districtSelect("Anand");
 
 		editSecurityAgencyPage.pinCodeInp("410023");
 
@@ -478,15 +469,15 @@ public class MasterEditRegressionSuite extends StartRegressionTest {
 
 		editSecurityGuardPage.guardNameInp("Nirmal Bapat");
 
-		editSecurityGuardPage.agencySelect("Vixen Transports");
+		editSecurityGuardPage.agencySelect("Trust Security Services");
 
 		editSecurityGuardPage.address1Inp("546 Nirmala Building");
 
 		editSecurityGuardPage.address2Inp("Vidhya Vilah Krishna Nagar");
 
-		editSecurityGuardPage.stateSelect("Gujarat");
+		editSecurityGuardPage.stateSelect("Maharashtra");
 
-		editSecurityGuardPage.districtSelect("Anand");
+		editSecurityGuardPage.districtSelect("Beed");
 
 		System.out.println("State District Selected");
 
@@ -552,9 +543,9 @@ public class MasterEditRegressionSuite extends StartRegressionTest {
 
 		editDriverPage.mobileInput("9338456431");
 
-		editDriverPage.stateSelect("Odisha");
+		editDriverPage.stateSelect("Gujarat");
 
-		editDriverPage.districtSelect("Balasore");
+		editDriverPage.districtSelect("Anand");
 
 		editDriverPage.submit();
 		

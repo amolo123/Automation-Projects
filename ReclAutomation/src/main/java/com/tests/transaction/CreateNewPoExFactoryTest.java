@@ -16,7 +16,7 @@ public class CreateNewPoExFactoryTest extends StartTest {
 	@Test(priority=1)
 	public void createNewPO() throws IOException, InterruptedException {
 		
-		test=extent.createTest("Create New PO");
+	test=extent.createTest("Create New PO");
 	 
 	 homePage.transactionClick();
 	 
@@ -24,9 +24,9 @@ public class CreateNewPoExFactoryTest extends StartTest {
 		
 	 homePage.createNewPoClick();
 	 
-	 createNewPoPage.companyNameSelect("Maharashtra Explosives");
+	 //createNewPoPage.companyNameSelect("GANPATI ENTERPRISES");
 	 
-	 createNewPoPage.customerNameSelect("CHARBHUJA NATH");
+	 createNewPoPage.customerNameSelect("GANPATI ENTERPRISES");
 	 
 	 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 	 
@@ -37,17 +37,17 @@ public class CreateNewPoExFactoryTest extends StartTest {
 	 
 	
 	 
-	 createNewPoPage.magazineCode("4545454");
+	 createNewPoPage.magazineCode("E/NC/RJ/22/730(E37454)");
 	 
 	 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 	 
 	 createNewPoPage.re11No("454677");
 	 
-	 createNewPoPage.browseSelect("/home/ankita/Pictures/jpeg43.jpg");
+	 createNewPoPage.browseSelect("/home/ankita/Downloads/sample.pdf");
 	 
 	 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 	 //driver.quit();
-	 createNewPoPage.re11DateSelect("03-06-2020");
+	 createNewPoPage.re11DateSelect("07/09/2020");
 	 
 	 createNewPoPage.re11QtyInp();
 	 

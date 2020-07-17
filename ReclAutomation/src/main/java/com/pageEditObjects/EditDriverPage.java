@@ -135,7 +135,7 @@ public void submitchk() {
 		String actual = driver.findElement(submitChk).getText();
 		System.out.println(actual);
 		
-		String message = "Driver  updated successfully";
+		String message = "Driver updated successfully";
 		Assert.assertEquals(actual, message); 
 		
 

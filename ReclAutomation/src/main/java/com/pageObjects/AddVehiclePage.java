@@ -67,7 +67,7 @@ public class AddVehiclePage {
 
 		Random rand = new Random();
 
-		int random = rand.nextInt(100);
+		int random = rand.nextInt(10000);
 		String random1 = String.valueOf(random);
 		String random2 = rando + random1;
 

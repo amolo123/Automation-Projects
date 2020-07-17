@@ -65,6 +65,8 @@ public class HomePage {
 	
 	By createGateInlist = By.xpath("//a[text()=' Gate In List ']");
 	
+	By gateOutList = By.xpath("//a[text()=' Gate Out List ']");
+	
 	
 	
 	
@@ -198,7 +200,30 @@ public class HomePage {
 	}
 	
 	
-  
+  //===========================Gate==================
+	
+	public void gate() {
+		
+		driver.findElement(gate).click();
+	}
+	
+	public void createGateInEntry() {
+		
+		driver.findElement(createGateInEnt).click();
+	}
+	
+    public void gateInList() {
+		
+		driver.findElement(createGateInlist).click();
+	}
+	
+	public void gateOut() {
+		
+		driver.findElement(gateOutList).click();
+	}
+	
+	
+	
 	
 	
 	

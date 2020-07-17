@@ -42,8 +42,8 @@ public class AddMagazineTest extends StartTest {
 		
     	addMagazinePage.magazineTypeSelect(2);     //1 for detonators 2 for explosives 
     	
-    	Random rand = new Random(10000);
-    	int num = rand.nextInt();
+    	Random rand = new Random();
+    	int num = rand.nextInt(10000);
     	
     	addMagazinePage.licenceNoInput("BRD232BT234597"+num);
     	
@@ -111,7 +111,7 @@ public class AddMagazineTest extends StartTest {
 	         System.out.println(result.getName()+""+"Failed ***********");
 	         Utility.captureScreenshot(driver, result.getName());
 	         
-	    		driver.quit();
+	    		//driver.quit();
 
 	     }
 

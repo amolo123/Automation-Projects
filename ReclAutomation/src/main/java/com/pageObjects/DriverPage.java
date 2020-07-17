@@ -16,7 +16,7 @@ public class DriverPage {
 
 	By addDriver = By.xpath("//span[text()='Add Driver']");
 
-	By editLast = By.xpath("//div[@role='toolbar']//button[@tooltip='Edit Driver']");
+	By editLast = By.xpath("//i[@class='fas fa-pen-alt text-warning']");
 
 	public DriverPage(WebDriver driver) {
 

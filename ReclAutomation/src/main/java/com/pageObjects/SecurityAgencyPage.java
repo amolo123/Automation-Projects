@@ -14,7 +14,7 @@ public class SecurityAgencyPage {
 	
     By addSecurityAgency = By.xpath("//span[text()='Add Security-Agency']");
     
-    By editLast = By.xpath("//div[@role='toolbar']//button[@tooltip='Edit Security-Agency']");
+    By editLast = By.xpath("//i[@class='fas fa-pen-alt text-warning']");
     
     //By addSecurityAgency = By.xpath("");
     
