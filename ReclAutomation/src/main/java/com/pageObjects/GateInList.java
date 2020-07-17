@@ -1,7 +1,11 @@
 package com.pageObjects;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +15,11 @@ public class GateInList {
 	
 	public WebDriver driver;
 	
-	By gateOutClick = By.xpath("//a[text()='Gate Out']");
+	By gateOutClick = By.xpath("//a[text()=' Create Gate Out Entry ']");
+	
+	By vehNoInput = By.xpath("//input[@formcontrolname='tokenNo']");
+	
+	By submit1 = By.xpath("//span[text()='Submit']");
 	
 	By subChk = By.xpath("");
 	
@@ -39,6 +47,29 @@ public class GateInList {
 		List <WebElement> myElements = driver.findElements(gateOutClick);
 		
 		((WebElement) myElements.get(0)).click();
+	}
+	
+	
+	public void vehNoInput() throws IOException {
+		
+		driver.findElement(vehNoInput).click();
+		
+		File file = new File("out.txt");//full file path URL
+		String absolutePath = file.getAbsolutePath();
+		
+		
+		String content = FileUtils.readFileToString(new File(absolutePath), StandardCharsets.UTF_8);
+		
+		System.out.println(content);
+		
+		driver.findElement(vehNoInput).sendKeys(content);
+		
+	}
+	
+	
+	public void submit1() {
+		
+		driver.findElement(submit1).click();
 	}
 	
 	

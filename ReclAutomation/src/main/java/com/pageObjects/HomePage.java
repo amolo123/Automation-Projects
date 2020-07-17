@@ -68,7 +68,14 @@ public class HomePage {
 	By gateOutList = By.xpath("//a[text()=' Gate Out List ']");
 	
 	
+	//=====================Intemation-=================
 	
+	
+	By advanceIntemation= By.xpath("//span[text()='Advance Intimation']");
+	
+	By sendPoIntemation= By.xpath("//a[text()=' Send Po Intimation ']");
+	
+	By sendAccessoryIntemation = By.xpath("//a[text()=' Send Accessory Intimation ']");
 	
 	public HomePage (WebDriver driver) {
 		
@@ -80,7 +87,7 @@ public class HomePage {
 	
 	
 	
-	//======================Logout Pane
+	//======================Logout Pane=================
 	
 	public void logout() throws InterruptedException {
 		
@@ -223,8 +230,22 @@ public class HomePage {
 	}
 	
 	
+	//===========Intemation ==================
 	
-	
+	public void intemationClick() {
+
+		driver.findElement(advanceIntemation).click();
+	}
+
+	public void sendPoIntemationClick() {
+
+		driver.findElement(sendPoIntemation).click();
+	}
+
+	public void sendAccessoryIntemationClick() {
+
+		driver.findElement(sendAccessoryIntemation).click();
+	}
 	
 	
 }

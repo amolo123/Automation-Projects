@@ -18,7 +18,7 @@ public class CreateGateInEntryPage {
 	
 	public WebDriver driver;
 	
-	By tokenNo = By.xpath("//ng-select[@formcontrolname='tokenNo']");
+	By tokenNo = By.xpath("//input[@formcontrolname='tokenNo']");
 	
 	By submit = By.xpath("//button[@type='submit']");
 	
@@ -85,11 +85,12 @@ public class CreateGateInEntryPage {
 		 //br.close();
 		  
 		//String str1 = st;
-		String str2 = "//span[text()='" + content + "']";
-		System.out.println(str2);
+		//String str2 = "//span[text()='" + content + "']";
+		//System.out.println(str2);
 
-		driver.findElement(By.xpath(str2)).click();
-
+		//driver.findElement(By.xpath(str2)).click();
+        driver.findElement(tokenNo).sendKeys(content);
+		
 	}
 
 	public void submit() {

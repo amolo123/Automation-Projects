@@ -1,5 +1,7 @@
 package com.tests.transaction;
 
+import java.io.IOException;
+
 import org.testng.annotations.Test;
 
 import com.tests.StartTest;
@@ -7,7 +9,7 @@ import com.tests.StartTest;
 public class GateOutClick extends StartTest{
 	
 	@Test
-	public void gateOut() throws InterruptedException {
+	public void gateOut() throws InterruptedException, IOException {
 		
 		test= extent.createTest("gate out");
 		
@@ -18,6 +20,11 @@ public class GateOutClick extends StartTest{
 		//homePage.gateInList();
 		
 		gateInList.gateOutClick();
+		
+		
+		gateInList.vehNoInput();
+		
+		gateInList.submit1();
 		
 		gateInList.securityGuardSelect();
 		

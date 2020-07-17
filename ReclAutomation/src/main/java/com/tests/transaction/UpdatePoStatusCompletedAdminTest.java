@@ -9,11 +9,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.library.Utility;
+import com.tests.StartTest;
 
-public class UpdatePoStatusCompletedAdminTest extends StartTestTransaction {
+public class UpdatePoStatusCompletedAdminTest extends StartTest{
 
 	@Test(priority = 1)
-	public void firstRecordClick() throws InterruptedException {
+	public void completedTest() throws InterruptedException {
 
 		test = extent.createTest("Complete status Test");
 
@@ -36,7 +37,7 @@ public class UpdatePoStatusCompletedAdminTest extends StartTestTransaction {
 //		String dt = dtf.format(localDate); // 2016/11/16
 //		System.out.println(dt);
 
-		createNewPoPage.goodsReceiptDateSelect("3/12/2020");
+		createNewPoPage.goodsReceiptDateSelect("07/16/2020");
 
 		createNewPoPage.submit();
 

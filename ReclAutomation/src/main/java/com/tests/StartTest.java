@@ -44,6 +44,7 @@ import com.pageObjects.HomePage;
 import com.pageObjects.ItemPage;
 import com.pageObjects.LoginPage;
 import com.pageObjects.MagzinePage;
+import com.pageObjects.POIntemationPage;
 import com.pageObjects.SecurityAgencyPage;
 import com.pageObjects.SecurityGuardPage;
 import com.pageObjects.AddSecurityGuardPage;
@@ -87,6 +88,8 @@ public class StartTest extends ExtentReportsClass {
 	public CreateNewAccessoryPoPage createNewAccessoryPoPage;
     public GateInList gateInList;
     public CreateGateInEntryPage createGateInEntryPage;
+    public POIntemationPage poIntemationPage;
+    
     
 	// =================Edit Page Objects================
 	public EditCompanyPage editCompanyPage;
@@ -166,7 +169,7 @@ public class StartTest extends ExtentReportsClass {
 		createNewAccessoryPoPage = new CreateNewAccessoryPoPage(driver);
 		gateInList = new GateInList(driver);
 		createGateInEntryPage = new CreateGateInEntryPage(driver);
-		
+		poIntemationPage = new POIntemationPage(driver);
 		
 		// =====================Edit Page Declared=========
 

@@ -24,8 +24,8 @@ public class CreateNewPOCompanyTest extends StartTest {
 	 
 	 //createNewPoPage.companyNameSelect("Rajasthan Explosives Chemicals Limited");
 	 
-	 for(int i=0;i<=5;i++) {
-	 
+	
+	
 		homePage.createNewPoClick();	 
 		 
 	 createNewPoPage.customerNameSelect("GANPATI ENTERPRISES");
@@ -44,7 +44,7 @@ public class CreateNewPOCompanyTest extends StartTest {
 	 
 	 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 	 //driver.quit();
-	 createNewPoPage.re11DateSelect("05/07/2020");
+	 createNewPoPage.re11DateSelect("07/07/2020");
 	 
 	 createNewPoPage.re11QtyInp();
 	 
@@ -64,8 +64,7 @@ public class CreateNewPOCompanyTest extends StartTest {
 	 createNewPoPage.submitchk();
 	 
 	 try {Thread.sleep(4000);} catch (InterruptedException e) {e.printStackTrace();}
- } 
-	 driver.quit();
+ 
 	 
  }
 
