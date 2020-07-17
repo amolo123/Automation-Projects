@@ -1,160 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="9" passed="9" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-07-17T12:22:10 IST" name="Default suite" finished-at="2020-07-17T12:26:44 IST" duration-ms="273375">
+  <suite started-at="2020-07-17T13:54:48 IST" name="Default suite" finished-at="2020-07-17T13:55:03 IST" duration-ms="15657">
     <groups>
     </groups>
-    <test started-at="2020-07-17T12:22:10 IST" name="Default test" finished-at="2020-07-17T12:26:44 IST" duration-ms="273375">
-      <class name="com.tests.regression.MasterRegressionSuite">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:22:10 IST" name="setUp" finished-at="2020-07-17T12:22:10 IST" duration-ms="148" status="PASS">
+    <test started-at="2020-07-17T13:54:48 IST" name="Default test" finished-at="2020-07-17T13:55:03 IST" duration-ms="15657">
+      <class name="com.tests.transaction.Intemation">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tests.transaction.Intemation@184cf7cf]" started-at="2020-07-17T13:54:47 IST" name="setUp" finished-at="2020-07-17T13:54:48 IST" duration-ms="142" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="openBrowser()[pri:0, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:22:10 IST" name="openBrowser" finished-at="2020-07-17T12:22:45 IST" duration-ms="34670" status="PASS">
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:com.tests.transaction.Intemation@184cf7cf]" started-at="2020-07-17T13:54:48 IST" name="openBrowser" finished-at="2020-07-17T13:54:58 IST" duration-ms="10107" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method signature="customerAdding()[pri:2, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:22:45 IST" name="customerAdding" finished-at="2020-07-17T12:23:08 IST" duration-ms="22857" status="PASS">
+        <test-method signature="sendIntemation()[pri:0, instance:com.tests.transaction.Intemation@184cf7cf]" started-at="2020-07-17T13:54:58 IST" name="sendIntemation" finished-at="2020-07-17T13:55:03 IST" duration-ms="5497" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- customerAdding -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:23:08 IST" name="getResult" finished-at="2020-07-17T12:23:08 IST" duration-ms="9" status="PASS">
+        </test-method> <!-- sendIntemation -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.tests.transaction.Intemation@184cf7cf]" started-at="2020-07-17T13:55:03 IST" name="afterMethod" finished-at="2020-07-17T13:55:03 IST" duration-ms="2" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=customerAdding status=SUCCESS method=MasterRegressionSuite.customerAdding()[pri:2, instance:com.tests.regression.MasterRegressionSuite@78e94dcf] output={null}]]]>
+                <![CDATA[[TestResult name=sendIntemation status=SUCCESS method=Intemation.sendIntemation()[pri:0, instance:com.tests.transaction.Intemation@184cf7cf] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.tests.transaction.Intemation@184cf7cf]" started-at="2020-07-17T13:55:03 IST" name="getResult" finished-at="2020-07-17T13:55:03 IST" duration-ms="8" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=sendIntemation status=SUCCESS method=Intemation.sendIntemation()[pri:0, instance:com.tests.transaction.Intemation@184cf7cf] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method signature="addItem()[pri:3, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:23:08 IST" name="addItem" finished-at="2020-07-17T12:23:15 IST" duration-ms="7372" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addItem -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:23:15 IST" name="getResult" finished-at="2020-07-17T12:23:15 IST" duration-ms="2" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=addItem status=SUCCESS method=MasterRegressionSuite.addItem()[pri:3, instance:com.tests.regression.MasterRegressionSuite@78e94dcf] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method signature="addMagazine()[pri:4, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:23:15 IST" name="addMagazine" finished-at="2020-07-17T12:23:45 IST" duration-ms="29326" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addMagazine -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:23:45 IST" name="getResult" finished-at="2020-07-17T12:23:45 IST" duration-ms="2" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=addMagazine status=SUCCESS method=MasterRegressionSuite.addMagazine()[pri:4, instance:com.tests.regression.MasterRegressionSuite@78e94dcf] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method signature="addVehicle()[pri:5, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:23:45 IST" name="addVehicle" finished-at="2020-07-17T12:25:10 IST" duration-ms="85489" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addVehicle -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:25:10 IST" name="getResult" finished-at="2020-07-17T12:25:10 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=addVehicle status=SUCCESS method=MasterRegressionSuite.addVehicle()[pri:5, instance:com.tests.regression.MasterRegressionSuite@78e94dcf] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method signature="addCompanyTest()[pri:6, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:25:10 IST" name="addCompanyTest" finished-at="2020-07-17T12:25:17 IST" duration-ms="6475" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addCompanyTest -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:25:17 IST" name="getResult" finished-at="2020-07-17T12:25:17 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=addCompanyTest status=SUCCESS method=MasterRegressionSuite.addCompanyTest()[pri:6, instance:com.tests.regression.MasterRegressionSuite@78e94dcf] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method signature="addTransporter()[pri:7, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:25:17 IST" name="addTransporter" finished-at="2020-07-17T12:25:27 IST" duration-ms="9980" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addTransporter -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:25:27 IST" name="getResult" finished-at="2020-07-17T12:25:27 IST" duration-ms="3" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=addTransporter status=SUCCESS method=MasterRegressionSuite.addTransporter()[pri:7, instance:com.tests.regression.MasterRegressionSuite@78e94dcf] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method signature="addSecurityAgency()[pri:8, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:25:27 IST" name="addSecurityAgency" finished-at="2020-07-17T12:25:35 IST" duration-ms="8320" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addSecurityAgency -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:25:35 IST" name="getResult" finished-at="2020-07-17T12:25:35 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=addSecurityAgency status=SUCCESS method=MasterRegressionSuite.addSecurityAgency()[pri:8, instance:com.tests.regression.MasterRegressionSuite@78e94dcf] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method signature="addSecurityGuard()[pri:9, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:25:35 IST" name="addSecurityGuard" finished-at="2020-07-17T12:25:45 IST" duration-ms="9614" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addSecurityGuard -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:25:45 IST" name="getResult" finished-at="2020-07-17T12:25:45 IST" duration-ms="3" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=addSecurityGuard status=SUCCESS method=MasterRegressionSuite.addSecurityGuard()[pri:9, instance:com.tests.regression.MasterRegressionSuite@78e94dcf] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method signature="addDriver()[pri:10, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:25:45 IST" name="addDriver" finished-at="2020-07-17T12:26:44 IST" duration-ms="59175" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addDriver -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:26:44 IST" name="getResult" finished-at="2020-07-17T12:26:44 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=addDriver status=SUCCESS method=MasterRegressionSuite.addDriver()[pri:10, instance:com.tests.regression.MasterRegressionSuite@78e94dcf] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tests.regression.MasterRegressionSuite@78e94dcf]" started-at="2020-07-17T12:26:44 IST" name="tearDown" finished-at="2020-07-17T12:26:44 IST" duration-ms="235" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tests.transaction.Intemation@184cf7cf]" started-at="2020-07-17T13:55:03 IST" name="tearDown" finished-at="2020-07-17T13:55:04 IST" duration-ms="341" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tests.regression.MasterRegressionSuite -->
+      </class> <!-- com.tests.transaction.Intemation -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
