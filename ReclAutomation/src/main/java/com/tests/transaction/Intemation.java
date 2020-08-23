@@ -24,8 +24,7 @@ public class Intemation extends StartTest{
 		poIntemationPage.submit();
 		
 	
-		
-		
+
 		
 		
 	}

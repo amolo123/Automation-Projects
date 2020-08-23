@@ -1,22 +1,24 @@
 package com.tests.regression;
-
+    
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+import java.util.Calendar;
+import java.util.Date;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
-import com.aventstack.extentreports.ExtentTest;
 import com.library.Utility;
 import com.tests.StartTest;
 
-public class CreateNewExFactoryPoRegressionSuite extends StartRegressionTest{
+public class CreateNewExFactoryPoRegressionSuite extends StartTest{
 
 	
-	@Test(priority=1)
+	@Test(priority=2)
 	public void createNewPO() throws  InterruptedException, IOException{
 		
 		test = extent.createTest("Create New Ex Factory Po");
@@ -27,7 +29,7 @@ public class CreateNewExFactoryPoRegressionSuite extends StartRegressionTest{
 		
 	 homePage.createNewPoClick();
 	 
-	 createNewPoPage.companyNameSelect("Maharashtra Explosives Pvt Ltd");
+	 //createNewPoPage.companyNameSelect("Maharashtra Explosives Pvt Ltd");
 	 
 	 createNewPoPage.customerNameSelect("CHARBHUJA NATH");
 	 
@@ -45,11 +47,24 @@ public class CreateNewExFactoryPoRegressionSuite extends StartRegressionTest{
 	 
 	 createNewPoPage.re11No("454677");
 	 
-	 createNewPoPage.browseSelect("/home/ankita/Pictures/jpeg43.jpg");
+	 createNewPoPage.browseSelect("/home/ankita/Desktop/int issue.pdf");
 	 
 	 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 
-	 createNewPoPage.re11DateSelect("03/04/2020");
+	 //------Date Before 5 days-----
+	 DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+	 
+	 Date date = new Date();
+	
+	 Calendar c = Calendar.getInstance();
+     c.setTime(date);
+     c.add(Calendar.DATE, -5);
+     Date currentDatePlusOne = c.getTime();
+	
+     String date1= dateFormat.format(currentDatePlusOne);
+	 System.out.println(date1);
+	 
+	 createNewPoPage.re11DateSelect(date1);
 	 
 	 createNewPoPage.re11QtyInp();
 	 
@@ -57,7 +72,6 @@ public class CreateNewExFactoryPoRegressionSuite extends StartRegressionTest{
 	 try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 	 
 	 createNewPoPage.orderBox();
-	 
 	 
 	 
 	 //createNewPoPage.orderQty();
@@ -71,77 +85,133 @@ public class CreateNewExFactoryPoRegressionSuite extends StartRegressionTest{
  }
 	
 	
-	@Test(priority = 2)
+	@Test(priority = 3)
 	public void updatePoStatusApproveAdmin() throws InterruptedException, IOException {
 
-		test=extent.createTest("Approve New PO");
-		
-		//homePage.transactionClick();
+		test = extent.createTest("Update Po Approve");
 
+
+		Thread.sleep(2000);
+		
 		homePage.allPoClick();
 
 		allPoPage.firstRecordClick();
 
-		createNewPoPage.vehicleNoSelect();
+		//createNewPoPage.vehicleNoSelect();
+		
+		 //------Date Before 5 days-----
+		 DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		 
+		 Date date = new Date();
+		
+		 Calendar c = Calendar.getInstance();
+	     c.setTime(date);
+	     c.add(Calendar.DATE, 6);
+	     Date currentDatePlusOne = c.getTime();
+		
+	     String date1= dateFormat.format(currentDatePlusOne);
+		 System.out.println(date1);
 
-		createNewPoPage.availabilityDateSelect("03/19/2020");
-		
-		
+		createNewPoPage.availabilityDateSelect(date1);
+
 		createNewPoPage.poStatusSelect("Approved");
-		
+
 		createNewPoPage.re11Verify();
-		
 
 		createNewPoPage.submit();
 
 		createNewPoPage.updateSubmitchk();
 
 	}
+
+	@Test(priority=4)
+	public void sendIntemation() throws InterruptedException {
+		
+		Thread.sleep(2000);
+		homePage.transactionClick();
+		test= extent.createTest("Send Itemation");
+		Thread.sleep(2000);
+		
+		homePage.intemationClick();
+		
+		homePage.sendPoIntemationClick();
+		
+		Thread.sleep(3000);
+		
+		poIntemationPage.lastCheckboxselect();
+		
+		poIntemationPage.submit();
+		
+	
+		
+	}
 	
 	
-	@Test(priority=3)
-	public void updatePoStatusDispatchAdminTest() throws InterruptedException {
+	
+	@Test(priority=5)
+	public void updateStatusDispatch() throws InterruptedException {
 		
-		test=extent.createTest("Dispartch New PO");
+		Thread.sleep(3000);
+		test = extent.createTest("Dispatch Status Test");
 		
-		//homePage.transactionClick();
+		homePage.transactionClick();
+		
+		Thread.sleep(3000);
 		
 		homePage.allPoClick();
 		
-		allPoPage.firstRecordClick();
 		
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		allPoPage.firstRecordClick();
+		Thread.sleep(2000);
 		
 		createNewPoPage.poStatusSelect("Dispatched");
+		System.out.println("Dispatched Clicked");
 		
-		System.out.println("Status changed to dispatched dispatched");
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		
-		createNewPoPage.invNoInput("NDF123231");
+		jse.executeScript("window.scrollBy(0,1000)");
 		
-		createNewPoPage.invDateInput("03/22/2020");
+		 //------Date Before 5 days-----
+		 DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		 
+		 Date date = new Date();
+		
+		 Calendar c = Calendar.getInstance();
+	     c.setTime(date);
+	     c.add(Calendar.DATE, -2);
+	     Date currentDatePlusOne = c.getTime();
+		
+	     String date1= dateFormat.format(currentDatePlusOne);
+		 System.out.println(date1);
+		
+		
+		createNewPoPage.invNoInput("ARM2345");
+		System.out.println("Invoice inputted ");
+		
+		createNewPoPage.invDateInput(date1);
+		System.out.println("invoice date Clicked");
 		
 		createNewPoPage.submit();
 		
 		createNewPoPage.updateSubmitchk();
 		
-		
-		
+	
 	}
 	
 	
-	@Test(priority=4)
+	@Test(priority=6)
 	public void creteGateInEntry() throws IOException, InterruptedException {
 		
-		test= extent.createTest("Create New PO");
+		Thread.sleep(3000);
 		homePage.transactionClick();
-		Thread.sleep(1500);
+		
+		Thread.sleep(2000);
+		
+		
+		test= extent.createTest("Create Gate In");
+		
 		homePage.gate();
-		Thread.sleep(1500);
 		
 		homePage.createGateInEntry();
 		
@@ -163,9 +233,8 @@ public class CreateNewExFactoryPoRegressionSuite extends StartRegressionTest{
 	}
 	
 	
-	
-	@Test(priority=5)
-	public void gateOut() throws InterruptedException {
+	@Test(priority=7)
+	public void gateOut() throws InterruptedException, IOException {
 		
 		test= extent.createTest("gate out");
 		
@@ -173,9 +242,14 @@ public class CreateNewExFactoryPoRegressionSuite extends StartRegressionTest{
 		
 		Thread.sleep(2000);
 		
-		homePage.gateInList();
+		//homePage.gateInList();
 		
 		gateInList.gateOutClick();
+		
+		
+		gateInList.vehNoInput();
+		
+		gateInList.submit1();
 		
 		gateInList.securityGuardSelect();
 		
@@ -184,12 +258,10 @@ public class CreateNewExFactoryPoRegressionSuite extends StartRegressionTest{
 		gateInList.vanStatusSelect();
 		
 		gateInList.submitClick();
-		
 	}
 	
-	
-	@Test(priority = 6)
-	public void statusComplete() throws InterruptedException {
+	@Test(priority = 8)
+	public void completedTest() throws InterruptedException {
 
 		test = extent.createTest("Complete status Test");
 
@@ -205,9 +277,20 @@ public class CreateNewExFactoryPoRegressionSuite extends StartRegressionTest{
 
 		createNewPoPage.poStatusSelect("Completed");
 
+		 //------Date Before 5 days-----
+		 DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		 
+		 Date date = new Date();
+		
+		 Calendar c = Calendar.getInstance();
+	     c.setTime(date);
+	     c.add(Calendar.DATE, 0);
+	     Date currentDatePlusOne = c.getTime();
+		
+	     String date1= dateFormat.format(currentDatePlusOne);
+		 System.out.println(date1);
 
-
-		createNewPoPage.goodsReceiptDateSelect("3/12/2020");
+		createNewPoPage.goodsReceiptDateSelect(date1);
 
 		createNewPoPage.submit();
 
@@ -217,8 +300,6 @@ public class CreateNewExFactoryPoRegressionSuite extends StartRegressionTest{
 
 	}
 	
-	
-
 	
 	
 	@AfterMethod

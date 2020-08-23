@@ -3,6 +3,8 @@ package com.tests;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,6 +12,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -59,7 +63,7 @@ public class StartTest extends ExtentReportsClass {
 
 	public WebDriver driver;
 	// public WebDriver driver2;
-
+    public static Logger logger;
 	String baseurl = "https://appqa.reclindia.com/";
     String baseurl2 ="https://www.webpagetest.org/";
 	
@@ -107,8 +111,11 @@ public class StartTest extends ExtentReportsClass {
 	// ExtentHtmlReporter
 	// ExtentReportsClass extentReportsClass;
 
-	@BeforeMethod
+	@BeforeTest
 	public void openBrowser() {
+		
+		 logger = Logger.getLogger("ReclAutomation");
+		PropertyConfigurator.configure("log4j.properties");		
 
 		String browser = "chrome";
 
@@ -137,7 +144,7 @@ public class StartTest extends ExtentReportsClass {
 		// driver=new FirefoxDriver();
 
 		// driver2=new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(160, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 
 		// driver2.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS );
 		System.out.println("Successfully opened the browser");
@@ -184,10 +191,13 @@ public class StartTest extends ExtentReportsClass {
 		editVehiclePage = new EditVehiclePage(driver);
 
 		login.usernameInput("admin@gmail.com");
-		login.passwordInput("password");
-
-		login.SignInButtonClick();
+		logger.info(" Enterd email ");
 		
+		login.passwordInput("password");
+		logger.info(" Enterd password ");
+		
+		login.SignInButtonClick();
+		logger.info("Clicked on Sign In  ");
 
 	}
 
