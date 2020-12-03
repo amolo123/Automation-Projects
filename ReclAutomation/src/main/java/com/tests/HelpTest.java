@@ -1,5 +1,8 @@
 package com.tests;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -72,7 +75,7 @@ public class HelpTest {
 	// ExtentReportsClass extentReportsClass;
 
 	@BeforeTest
-	public void openBrowser() {
+	public void openBrowser() throws IOException {
 
 		String browser = "chrome";
 
@@ -101,6 +104,12 @@ public class HelpTest {
 		// driver=new FirefoxDriver();
 
 		// driver2=new ChromeDriver();
+		Properties prop = new Properties();
+		FileInputStream file = new FileInputStream("/home/ankita/git/Automation-Projects/ReclAutomation/src/main/java/config.properties");
+		prop.load(file);
+		System.out.println(prop.getProperty("uname"));
+		System.out.println(prop.getProperty("password"));
+		
 		driver.manage().timeouts().implicitlyWait(160, TimeUnit.SECONDS);
 
 		// driver2.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS );

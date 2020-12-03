@@ -1,6 +1,9 @@
 package com.tests;
 
-import java.io.File;
+import java.io.FileInputStream;
+
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
@@ -9,14 +12,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
-
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
+import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.library.ExtentReportsClass;
 import com.library.Utility;
 import com.pageEditObjects.EditCompanyPage;
@@ -57,15 +58,11 @@ import com.pageObjects.VehiclePage;
 
 public class StartTest extends ExtentReportsClass {
 
-	public final String driverPath = "/usr/bin/chromedriver";
-
-	public final String driverPath2 = "/usr/bin/geckodriver";
-
+	
 	public WebDriver driver;
 	// public WebDriver driver2;
     public static Logger logger;
-	String baseurl = "https://appqa.reclindia.com/";
-    String baseurl2 ="https://www.webpagetest.org/";
+	
 	
 	public LoginPage login;
 	public HomePage homePage;
@@ -112,16 +109,29 @@ public class StartTest extends ExtentReportsClass {
 	// ExtentReportsClass extentReportsClass;
 
 	@BeforeTest
-	public void openBrowser() {
+	public void openBrowser() throws IOException {
 		
 		 logger = Logger.getLogger("ReclAutomation");
-		PropertyConfigurator.configure("log4j.properties");		
+		PropertyConfigurator.configure("log4j.properties");	
+		
+		Properties prop = new Properties();
+		FileInputStream file = new FileInputStream("/home/ankita/git/Automation-Projects/ReclAutomation/src/main/java/config.properties");
+		prop.load(file);
+		String uname = prop.getProperty("uname");
+		
+		String password = prop.getProperty("password");
+		
+		String baseurl = prop.getProperty("baseurl");
+		
+		String driverpath = prop.getProperty("driverpath");
+		
+		String driverpath2 = prop.getProperty("driverpath2");
 
 		String browser = "chrome";
 
 		if (browser.equalsIgnoreCase("firefox")) {
 			// create firefox instance
-			System.setProperty("webdriver.gecko.driver", driverPath2);
+			System.setProperty("webdriver.gecko.driver", driverpath2);
 			driver = new FirefoxDriver();
 		}
 		// Check if parameter passed as 'chrome'
@@ -132,10 +142,24 @@ public class StartTest extends ExtentReportsClass {
 			options.addArguments("--disable-notifications");
 			
 			
-			System.setProperty("webdriver.chrome.driver", driverPath);
+			System.setProperty("webdriver.chrome.driver", driverpath);
 			// create chrome instance
 			driver = new ChromeDriver(options);
 		}
+		
+		
+		else if (browser.equalsIgnoreCase("headless")) {
+			// set path to chromedriver.exe
+			
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--disable-notifications");
+			options.addArguments("headless");
+			
+			System.setProperty("webdriver.chrome.driver", driverpath);
+			// create chrome instance
+			
+		}
+		
 
 		// System.setProperty("webdriver.chrome.driver", driverPath);
 		// driver = new ChromeDriver();
@@ -144,12 +168,21 @@ public class StartTest extends ExtentReportsClass {
 		// driver=new FirefoxDriver();
 
 		// driver2=new ChromeDriver();
+		
+		
+		
+		//System.out.println(prop.getProperty("uname"));
+		
+		
+		
+		
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 
-		// driver2.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS );
+		//driver2.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS );
 		System.out.println("Successfully opened the browser");
 		driver.navigate().to(baseurl);
 		driver.manage().window().maximize();
+	
 
 		login = new LoginPage(driver);
 		homePage = new HomePage(driver);
@@ -190,10 +223,10 @@ public class StartTest extends ExtentReportsClass {
 		editTransporterPage = new EditTransporterPage(driver);
 		editVehiclePage = new EditVehiclePage(driver);
 
-		login.usernameInput("admin@gmail.com");
+		login.usernameInput(uname);
 		logger.info(" Enterd email ");
 		
-		login.passwordInput("password");
+		login.passwordInput(password);
 		logger.info(" Enterd password ");
 		
 		login.SignInButtonClick();

@@ -6,8 +6,18 @@ import java.util.Random;
 
 import org.testng.annotations.Test;
 
+import com.pageObjects.AddCompanyPage;
+import com.pageObjects.AddCustomerPage;
+import com.tests.AddCustomerTest;
+import com.tests.AddVehicleTest;
+import com.tests.StartTest;
 
-public class MasterRegressionSuite extends StartRegressionTest {
+
+public class MasterRegressionSuite extends StartTest{
+	
+	
+	
+	
 
 	@Test(priority = 2)
 	public void customerAdding() throws IOException, InterruptedException {

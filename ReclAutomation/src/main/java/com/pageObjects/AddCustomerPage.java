@@ -208,7 +208,7 @@ public class AddCustomerPage {
 		
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(chk));
-		
+	
 		String actual = driver.findElement(chk).getText();
 		System.out.println(actual);
 		

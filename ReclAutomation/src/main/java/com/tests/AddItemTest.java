@@ -16,11 +16,13 @@ public class AddItemTest extends StartTest {
 //	}
 	
 	
+	
 	@Test(priority=1)
 	public void addItem() {
 		
 		homePage = new HomePage(driver);
 		test= extent.createTest("Add Item Test");
+		
 		
 		homePage.masterClick();
 		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}

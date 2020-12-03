@@ -37,11 +37,16 @@ public class EditCompanyPage {
 	By chk6 = By.xpath("//div[@role='alertdialog']");
 
 	By chk7 = By.xpath("//div[@role='alertdialog']");
+	
+	//=========== Constructor==================
 
 	public EditCompanyPage(WebDriver driver) {
 		
 		this.driver = driver;
 	}
+	
+	
+	//============Actions===========================
 
 	public void codeInput() {
 
@@ -115,7 +120,6 @@ public class EditCompanyPage {
 
 		driver.findElement(submit).click();
 	}
-	
 	
 
 	public void submitchk() {
