@@ -20,6 +20,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 
@@ -55,9 +57,14 @@ public class Assignment2Test {
 
 	}
 
-	@Test(priority = 1)
+	
+	@Test(priority = 1 )
 	public void triphobo() throws InterruptedException, AWTException {
 
+		int startDate =11;
+		int endDate =15;
+		
+		
 		// Click on "PLAN YOUR NEXT VACATION" button on the homepage
 
 		WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -79,13 +86,15 @@ public class Assignment2Test {
 
 		// Select Start and End date of your journey
 		driver.findElement(By.xpath("//span[@class='start-date-control']")).click();
+		
+	
 
 		driver.findElement(By.xpath(
-				"//div[@class='ui-datepicker-group ui-datepicker-group-first']//td[@data-month='11']/a[text()='8']"))
+				"//div[@class='ui-datepicker-group ui-datepicker-group-first']//td[@data-month='11']/a[text()='"+startDate+"']"))
 				.click();
 
 		driver.findElement(By.xpath(
-				"//div[@class='ui-datepicker-group ui-datepicker-group-first']//td[@data-month='11']/a[text()='24']"))
+				"//div[@class='ui-datepicker-group ui-datepicker-group-first']//td[@data-month='11']/a[text()='"+endDate+"']"))
 				.click();
 
 		// Click on button "Start Planning"

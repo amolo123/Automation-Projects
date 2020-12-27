@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.testCases.Assignment2Test">
+      <class name="com.testCases.ErokdaTest">
         <methods>
-          <include name="afterMethod"/>
+          <include name="test"/>
           <include name="openBrowser"/>
-          <include name="triphobo"/>
         </methods>
-      </class> <!-- com.testCases.Assignment2Test -->
+      </class> <!-- com.testCases.ErokdaTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

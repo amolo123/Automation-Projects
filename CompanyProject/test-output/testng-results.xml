@@ -2,31 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-12-03T00:45:02 IST" name="Default suite" finished-at="2020-12-03T00:45:40 IST" duration-ms="38187">
+  <suite started-at="2020-12-26T11:57:13 IST" name="Default suite" finished-at="2020-12-26T11:57:31 IST" duration-ms="18387">
     <groups>
     </groups>
-    <test started-at="2020-12-03T00:45:02 IST" name="Default test" finished-at="2020-12-03T00:45:40 IST" duration-ms="38187">
-      <class name="com.testCases.Assignment2Test">
-        <test-method is-config="true" signature="openBrowser()[pri:0, instance:com.testCases.Assignment2Test@6572421]" started-at="2020-12-03T00:45:02 IST" name="openBrowser" finished-at="2020-12-03T00:45:06 IST" duration-ms="3757" status="PASS">
+    <test started-at="2020-12-26T11:57:13 IST" name="Default test" finished-at="2020-12-26T11:57:31 IST" duration-ms="18387">
+      <class name="com.testCases.ErokdaTest">
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:com.testCases.ErokdaTest@1aa7ecca]" started-at="2020-12-26T11:57:13 IST" name="openBrowser" finished-at="2020-12-26T11:57:17 IST" duration-ms="4543" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method signature="triphobo()[pri:1, instance:com.testCases.Assignment2Test@6572421]" started-at="2020-12-03T00:45:06 IST" name="triphobo" finished-at="2020-12-03T00:45:40 IST" duration-ms="34396" status="PASS">
+        <test-method signature="test()[pri:1, instance:com.testCases.ErokdaTest@1aa7ecca]" started-at="2020-12-26T11:57:17 IST" name="test" finished-at="2020-12-26T11:57:31 IST" duration-ms="13784" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- triphobo -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.testCases.Assignment2Test@6572421]" started-at="2020-12-03T00:45:40 IST" name="afterMethod" finished-at="2020-12-03T00:45:40 IST" duration-ms="2" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=triphobo status=SUCCESS method=Assignment2Test.triphobo()[pri:1, instance:com.testCases.Assignment2Test@6572421] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-      </class> <!-- com.testCases.Assignment2Test -->
+        </test-method> <!-- test -->
+      </class> <!-- com.testCases.ErokdaTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
