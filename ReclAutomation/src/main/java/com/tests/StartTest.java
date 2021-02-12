@@ -55,6 +55,7 @@ import com.pageObjects.SecurityGuardPage;
 import com.pageObjects.AddSecurityGuardPage;
 import com.pageObjects.TransporterPage;
 import com.pageObjects.VehiclePage;
+import com.recl.driver.Driver;
 
 public class StartTest extends ExtentReportsClass {
 
@@ -63,6 +64,7 @@ public class StartTest extends ExtentReportsClass {
 	// public WebDriver driver2;
     public static Logger logger;
 	
+    ITestResult result;
 	
 	public LoginPage login;
 	public HomePage homePage;
@@ -107,11 +109,18 @@ public class StartTest extends ExtentReportsClass {
 	// public ExtentTest test;
 	// ExtentHtmlReporter
 	// ExtentReportsClass extentReportsClass;
+	
+	
+	protected  StartTest() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 
 	@BeforeTest
 	public void openBrowser() throws IOException {
 		
-		 logger = Logger.getLogger("ReclAutomation");
+		logger = Logger.getLogger("ReclAutomation");
 		PropertyConfigurator.configure("log4j.properties");	
 		
 		Properties prop = new Properties();
@@ -129,6 +138,9 @@ public class StartTest extends ExtentReportsClass {
 
 		String browser = "chrome";
 
+		//Driver.initDriver();
+		
+		
 		if (browser.equalsIgnoreCase("firefox")) {
 			// create firefox instance
 			System.setProperty("webdriver.gecko.driver", driverpath2);
@@ -176,7 +188,7 @@ public class StartTest extends ExtentReportsClass {
 		
 		
 		
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		//driver2.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS );
 		System.out.println("Successfully opened the browser");
@@ -267,6 +279,9 @@ public class StartTest extends ExtentReportsClass {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		//Driver.quitDriver(result);
+		
 
 	}
 

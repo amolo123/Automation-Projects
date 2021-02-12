@@ -22,7 +22,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class ErokdaTest {
 	
-	
+
 	public WebDriver driver;
 
 	String baseurl = "http://www.erokda.in/newinvest/";
@@ -65,7 +65,7 @@ public class ErokdaTest {
 		Actions act = new Actions(driver);
 		WebElement el1 = driver.findElement(By.xpath("//input[@name='mobile_no']"));
 		act.moveToElement(el1);
-		
+	
 		driver.findElement(By.xpath("//input[@name='mobile_no']")).sendKeys("9730134501");
 		
 		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("mt@test.com");
@@ -153,9 +153,9 @@ public class ErokdaTest {
 //	    String jr=driver.getPageSource().toString();
 //		
 //		System.out.println(jr);
-		
-	}
-	
+//		
+//	}
+//	
 	
 	
 	
