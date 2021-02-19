@@ -15,8 +15,7 @@ import com.tests.StartTest;
 
 public class MasterRegressionSuite extends StartTest{
 	
-	
-	
+    
 	@Test(priority = 2)
 	public void customerAdding() throws IOException, InterruptedException {
 		

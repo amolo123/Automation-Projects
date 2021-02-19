@@ -11,6 +11,7 @@
           <include name="setUp"/>
           <include name="getResult"/>
           <include name="openBrowser"/>
+          <include name="addVehicle"/>
         </methods>
       </class> <!-- com.tests.regression.MasterRegressionSuite -->
     </classes>
